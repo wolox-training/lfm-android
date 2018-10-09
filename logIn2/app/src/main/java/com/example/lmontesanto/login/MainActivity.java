@@ -1,40 +1,43 @@
 package com.example.lmontesanto.login;
-
 import android.app.Activity;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class MainActivity extends Activity {
+import butterknife.BindView;
+import butterknife.ButterKnife;
 
+public class MainActivity extends Activity {
+    @BindView (R.id.emailText) EditText emailText;
+    @BindView(R.id.passwordText) EditText passwordText;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        ButterKnife.bind(this);
     }
     public void onClickLogIn(View view){
-        EditText email=(EditText) findViewById(R.id.emailText);
-        EditText password=(EditText) findViewById(R.id.passwordText);
-        if (email.getText().toString().isEmpty() && password.getText().toString().isEmpty()){
-            email.setError("Debe completar este campo");
-            password.setError("Debe completar este campo");
+        if (emailText.getText().toString().isEmpty() && passwordText.getText().toString().isEmpty()){
+            emailText.setError("Debe completar este campo");
+            passwordText.setError("Debe completar este campo");
         }
         else{
-            if (validarEmail(email.getText().toString())) {
-                if (validarPassword(password.getText().toString())) {
+            if (validarEmail(emailText.getText().toString())) {
+                if (validarPassword(passwordText.getText().toString())) {
                     //pasar a menu..
                 }
                 else{
-                    password.setError("Password Incorrecta");
+                    passwordText.setError("Password Incorrecta");
                 }
             }
             else{
                 // notificar al usuario con un error al lado del campo email
-                email.setError("EMail Invalido");
+                emailText.setError("EMail Invalido");
             }
         }
     }
