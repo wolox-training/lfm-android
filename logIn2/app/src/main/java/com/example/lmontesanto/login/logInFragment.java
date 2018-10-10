@@ -1,7 +1,10 @@
 package com.example.lmontesanto.login;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -62,8 +65,15 @@ public class logInFragment extends Fragment implements View.OnClickListener {
         else{
             if (validarEmail(emailText.getText().toString())) {
                 if (validarPassword(passwordText.getText().toString())) {
-                    //pasar a menu..
-                    //persistir
+                    SharedPreferences sharedPref = getActivity().getSharedPreferences("prefs",Context.MODE_PRIVATE);
+                    SharedPreferences.Editor editor = sharedPref.edit();
+                    editor.putString("mail", emailText.getText().toString());
+                    editor.apply();
+                    BienvenidoFragment bienvenidoFrg=new BienvenidoFragment();
+                    bienvenidoFrg.updateTextView(emailText.getText().toString());
+                    FragmentTransaction ft=getFragmentManager().beginTransaction();
+                    ft.replace(R.id.contenedor,bienvenidoFrg);
+                    ft.commit();
                 }
                 else
                     passwordText.setError("Password Incorrecta");
