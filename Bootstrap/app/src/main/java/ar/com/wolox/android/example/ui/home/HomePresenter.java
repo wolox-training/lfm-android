@@ -12,8 +12,11 @@ class HomePresenter extends BasePresenter<IHomeView> {
     public HomePresenter(){
 
     }
-    public String welcomeStr ( Context context) {
+    public void doLogOut( Context context) {
         SharedPreferences sharedPref = context.getSharedPreferences("prefs",Context.MODE_PRIVATE);
-        return sharedPref.getString("username", "");
+        SharedPreferences.Editor editor = sharedPref.edit();
+        editor.clear();
+        editor.apply();
     }
 }
+

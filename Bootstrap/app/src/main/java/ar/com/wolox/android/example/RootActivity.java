@@ -19,8 +19,8 @@ public class RootActivity extends WolmoActivity {
     protected void init() {
         Intent intent;
         SharedPreferences pref = getSharedPreferences("prefs", Context.MODE_PRIVATE);
-        String username = pref.getString("username", "");
-        if (username.isEmpty()){
+        String username = pref.getString("mail", "");
+        if (username.equals("")){
             intent=new Intent(this,LogInActivity.class);
             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
             startActivity(intent);

@@ -92,7 +92,7 @@
 
     //Wlogo
     <dimen name="wLogo_layout_height">56dp</dimen>
-    <dimen name="wlogo_layout_width">56</dimen>
+    <dimen name="wlogo_layout_width">56dp</dimen>
     <dimen name="wlogo_marginStart">16dp</dimen>
 
 
