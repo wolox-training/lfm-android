@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">logIn</string>
+    <string name="log_in">LOG IN</string>
+    <string name="sign_up">SIGN UP</string>
+    <string name="terms">By joining you agree to our Terms &amp; Conditions</string>
+    <string name="email_hint">Email</string>
+    <string name="password_hint">Password</string>
+</resources>
