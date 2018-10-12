@@ -33,27 +33,4 @@ public class RootActivity extends WolmoActivity {
         }
     }
 
-    @Override
-    protected void onResume() {
-        super.onResume();
-    }
-
-    @Override
-    protected void onStart() {
-        super.onStart();
-        Intent intent;
-        SharedPreferences pref = getSharedPreferences("prefs", Context.MODE_PRIVATE);
-        String username = pref.getString("username", "");
-        if (username.isEmpty()){
-            intent=new Intent(this,LogInActivity.class);
-            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
-            startActivity(intent);
-            this.finish();
-        }
-        else {
-            intent = new Intent(this, HomeActivity.class);
-            startActivity(intent);
-            this.finish();
-        }
-    }
 }

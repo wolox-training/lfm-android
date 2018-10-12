@@ -1,22 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:orientation="vertical">
 
     <ImageView
+        android:id="@+id/logInCover"
+        android:layout_width="@dimen/logInCover_layout_width"
+        android:layout_height="@dimen/logInCover_layout_height"
+        android:background="@drawable/login_cover"
+        app:srcCompat="@drawable/login_cover" />
+
+    <ImageView
         android:id="@+id/imageView"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/logo_height"
+        android:layout_height="140dp"
         android:layout_marginStart="@dimen/logo_marginStart"
         android:layout_marginTop="@dimen/logo_marginTop"
         android:layout_marginBottom="@dimen/logo_marginBottom"
-        android:src="@drawable/wlogo" />
+        android:adjustViewBounds="false"
+        android:src="@drawable/wolox_logo_large"
+        android:translationY="-100dp" />
 
     <EditText
         android:id="@+id/emailText"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/email_marginStart"
         android:layout_marginTop="@dimen/email_marginTop"
@@ -25,11 +35,11 @@
         android:ems="10"
         android:hint="@string/email_hint"
         android:inputType="textEmailAddress"
-        android:singleLine="false" />
+        android:singleLine="true" />
 
     <EditText
         android:id="@+id/passwordText"
-        android:layout_width="@dimen/input_logIn_width"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/pass_marginStart"
         android:layout_marginBottom="@dimen/email_marginBottom"

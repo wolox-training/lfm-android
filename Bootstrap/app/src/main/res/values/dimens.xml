@@ -47,44 +47,53 @@
     <dimen name="input_logIn_width">215dp</dimen>
 
     <!-- Add your custom dimens here -->
-    //Logo
+    //WLogo large
     <dimen name="logo_width">60dp</dimen>
     <dimen name="logo_height">172dp</dimen>
     <dimen name="logo_marginStart">0dp</dimen>
     <dimen name="logo_marginTop">20dp</dimen>
-    <dimen name="logo_marginBottom">5dp</dimen>
+    <dimen name="logo_marginBottom">-100dp</dimen>
 
     //email Text Field
-    <dimen name="email_marginStart">85dp</dimen>
+    <dimen name="email_marginStart">16dp</dimen>
     <dimen name="email_marginTop">8dp</dimen>
-    <dimen name="email_marginEnd">84dp</dimen>
-    <dimen name="email_marginBottom">35dp</dimen>
+    <dimen name="email_marginEnd">16dp</dimen>
+    <dimen name="email_marginBottom">15dp</dimen>
 
     //Password Text Field
-    <dimen name="pass_marginStart">85dp</dimen>
+    <dimen name="pass_marginStart">16dp</dimen>
     <dimen name="pass_marginTop">8dp</dimen>
-    <dimen name="pass_marginEnd">84dp</dimen>
-    <dimen name="pass_marginBottom">35dp</dimen>
+    <dimen name="pass_marginEnd">16dp</dimen>
+    <dimen name="pass_marginBottom">15dp</dimen>
 
     //Log in Button
-    <dimen name="logInBtn_marginStart">85dp</dimen>
+    <dimen name="logInBtn_marginStart">16dp</dimen>
     <dimen name="logInBtn_marginTop">8dp</dimen>
-    <dimen name="logInBtn_marginEnd">84dp</dimen>
-    <dimen name="logInBtn_marginBottom">35dp</dimen>
+    <dimen name="logInBtn_marginEnd">16dp</dimen>
+    <dimen name="logInBtn_marginBottom">20dp</dimen>
 
     //Sign up Button
-    <dimen name="signUpBtn_marginStart">85dp</dimen>
-    <dimen name="signUpBtn_marginTop">8dp</dimen>
-    <dimen name="signUpBtn_marginEnd">84dp</dimen>
-    <dimen name="signUpBtn_marginBottom">35dp</dimen>
+    <dimen name="signUpBtn_marginStart">16dp</dimen>
+    <dimen name="signUpBtn_marginTop">0dp</dimen>
+    <dimen name="signUpBtn_marginEnd">16dp</dimen>
+    <dimen name="signUpBtn_marginBottom">15dp</dimen>
 
     //Terms Text Field
     <dimen name="terms_marginStart">55dp</dimen>
     <dimen name="terms_marginEnd">40dp</dimen>
-    <dimen name="terms_marginBottom">5dp</dimen>
-    <dimen name="terms_marginTop">50dp</dimen>
+    <dimen name="terms_marginBottom">15dp</dimen>
+    <dimen name="terms_marginTop">5dp</dimen>
     //Bienvenido Text Field
     <dimen name="bienvenido_layout_height">76dp</dimen>
+
+    //Log In Cover
+    <dimen name="logInCover_layout_width">413dp</dimen>
+    <dimen name="logInCover_layout_height">191dp</dimen>
+
+    //Wlogo
+    <dimen name="wLogo_layout_height">56dp</dimen>
+    <dimen name="wlogo_layout_width">56</dimen>
+    <dimen name="wlogo_marginStart">16dp</dimen>
 
 
 

@@ -1,14 +1,15 @@
 package ar.com.wolox.android.example.ui.logIn;
 
-import android.content.Context;
+
 import android.content.Intent;
-import android.content.SharedPreferences;
-import android.support.v4.app.FragmentTransaction;
 import android.text.TextUtils;
 import android.widget.Button;
 import android.widget.EditText;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
+import javax.inject.Inject;
+
 import ar.com.wolox.android.R;
 import ar.com.wolox.android.example.ui.home.HomeActivity;
 import ar.com.wolox.wolmo.core.fragment.WolmoFragment;
@@ -17,12 +18,17 @@ import butterknife.OnClick;
 
 public class LogInFragment extends WolmoFragment<LogInPresenter> implements ILogInView{
 
+    @Inject
+    public LogInFragment(){
+    }
     @BindView(R.id.emailText)
     EditText emailText;
     @BindView(R.id.passwordText) EditText passwordText;
     @BindView (R.id.logIn)
     Button logInButton;
     @BindView (R.id.signUp) Button signUpButton;
+
+
 
     @Override
     public int layout() {
@@ -45,11 +51,9 @@ public class LogInFragment extends WolmoFragment<LogInPresenter> implements ILog
         return (!TextUtils.isEmpty(password)&& matcher.matches());
     }
     @OnClick(R.id.logIn)
-
-    private void logIn(){
+    public void logIn(){
         if (emailText.getText().toString().isEmpty() && passwordText.getText().toString().isEmpty()){
-            emailText.setError("You must complete this field");
-            passwordText.setError("You must complete this field");
+            emailText.setError("You must complete both fields");
         }
         else{
             if (validarEmail(emailText.getText().toString())) {
@@ -67,9 +71,10 @@ public class LogInFragment extends WolmoFragment<LogInPresenter> implements ILog
                 emailText.setError("Invalid Email");
         }
     }
-    @OnClick(R.id.signUp)
-
-    private void signUp(){
+    /*
+     @OnClick(R.id.signUp)
+     public void signUp(){
         //TODO START SIGN UP ACTIVITY
     }
+   */
 }

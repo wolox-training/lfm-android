@@ -9,7 +9,6 @@ public class LogInActivity  extends WolmoActivity{
     @Inject
     LogInFragment mLogInFragment;
 
-
     @Override
     protected int layout() {
         return R.layout.activity_base;
