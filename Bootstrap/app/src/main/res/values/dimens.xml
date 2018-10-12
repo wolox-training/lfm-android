@@ -44,6 +44,48 @@
     <dimen name="font_large_extra">20sp</dimen>
     <dimen name="font_big">22sp</dimen>
     <dimen name="font_huge">24sp</dimen>
+    <dimen name="input_logIn_width">215dp</dimen>
 
     <!-- Add your custom dimens here -->
+    //Logo
+    <dimen name="logo_width">60dp</dimen>
+    <dimen name="logo_height">172dp</dimen>
+    <dimen name="logo_marginStart">0dp</dimen>
+    <dimen name="logo_marginTop">20dp</dimen>
+    <dimen name="logo_marginBottom">5dp</dimen>
+
+    //email Text Field
+    <dimen name="email_marginStart">85dp</dimen>
+    <dimen name="email_marginTop">8dp</dimen>
+    <dimen name="email_marginEnd">84dp</dimen>
+    <dimen name="email_marginBottom">35dp</dimen>
+
+    //Password Text Field
+    <dimen name="pass_marginStart">85dp</dimen>
+    <dimen name="pass_marginTop">8dp</dimen>
+    <dimen name="pass_marginEnd">84dp</dimen>
+    <dimen name="pass_marginBottom">35dp</dimen>
+
+    //Log in Button
+    <dimen name="logInBtn_marginStart">85dp</dimen>
+    <dimen name="logInBtn_marginTop">8dp</dimen>
+    <dimen name="logInBtn_marginEnd">84dp</dimen>
+    <dimen name="logInBtn_marginBottom">35dp</dimen>
+
+    //Sign up Button
+    <dimen name="signUpBtn_marginStart">85dp</dimen>
+    <dimen name="signUpBtn_marginTop">8dp</dimen>
+    <dimen name="signUpBtn_marginEnd">84dp</dimen>
+    <dimen name="signUpBtn_marginBottom">35dp</dimen>
+
+    //Terms Text Field
+    <dimen name="terms_marginStart">55dp</dimen>
+    <dimen name="terms_marginEnd">40dp</dimen>
+    <dimen name="terms_marginBottom">5dp</dimen>
+    <dimen name="terms_marginTop">50dp</dimen>
+    //Bienvenido Text Field
+    <dimen name="bienvenido_layout_height">76dp</dimen>
+
+
+
 </resources>

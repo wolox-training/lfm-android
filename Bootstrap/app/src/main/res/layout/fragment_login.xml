@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/logo_height"
+        android:layout_marginStart="@dimen/logo_marginStart"
+        android:layout_marginTop="@dimen/logo_marginTop"
+        android:layout_marginBottom="@dimen/logo_marginBottom"
+        android:src="@drawable/wlogo" />
+
+    <EditText
+        android:id="@+id/emailText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/email_marginStart"
+        android:layout_marginTop="@dimen/email_marginTop"
+        android:layout_marginEnd="@dimen/email_marginEnd"
+        android:layout_marginBottom="@dimen/email_marginBottom"
+        android:ems="10"
+        android:hint="@string/email_hint"
+        android:inputType="textEmailAddress"
+        android:singleLine="false" />
+
+    <EditText
+        android:id="@+id/passwordText"
+        android:layout_width="@dimen/input_logIn_width"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/pass_marginStart"
+        android:layout_marginBottom="@dimen/email_marginBottom"
+        android:ems="10"
+        android:hint="@string/password_hint"
+        android:inputType="textPassword" />
+
+    <Button
+        android:id="@+id/logIn"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginStart="@dimen/logInBtn_marginStart"
+        android:layout_marginTop="@dimen/logInBtn_marginTop"
+        android:layout_marginEnd="@dimen/logInBtn_marginEnd"
+        android:layout_marginBottom="@dimen/logInBtn_marginBottom"
+        android:background="@drawable/myrect"
+        android:clickable="true"
+        android:focusable="true"
+        android:text="@string/log_in" />
+
+    <Button
+        android:id="@+id/signUp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginStart="@dimen/signUpBtn_marginStart"
+        android:layout_marginEnd="@dimen/signUpBtn_marginEnd"
+        android:layout_marginBottom="@dimen/signUpBtn_marginBottom"
+        android:background="@android:color/holo_blue_light"
+        android:text="@string/sign_up"
+        android:textColor="@android:color/white" />
+
+    <TextView
+        android:id="@+id/terms"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/terms_marginStart"
+        android:layout_marginEnd="@dimen/terms_marginEnd"
+        android:layout_marginTop="@dimen/terms_marginTop"
+        android:layout_marginBottom="@dimen/terms_marginBottom"
+        android:text="@string/terms" />
+
+</LinearLayout>
