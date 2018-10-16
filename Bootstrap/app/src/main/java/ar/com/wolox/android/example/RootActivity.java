@@ -10,6 +10,9 @@ import ar.com.wolox.android.example.ui.logIn.LogInActivity;
 import ar.com.wolox.wolmo.core.activity.WolmoActivity;
 
 public class RootActivity extends WolmoActivity {
+    private static final String SHARED_PREFERENCES="prefs";
+    private static final String SHARED_PREFERENCES_KEY_EMAIL="mail";
+
     @Override
     protected int layout() {
         return  R.layout.activity_base;
@@ -18,16 +21,16 @@ public class RootActivity extends WolmoActivity {
     @Override
     protected void init() {
         Intent intent;
-        SharedPreferences pref = getSharedPreferences("prefs", Context.MODE_PRIVATE);
-        String username = pref.getString("mail", "");
-        if (username.equals("")){
+        SharedPreferences pref = getSharedPreferences(SHARED_PREFERENCES, Context.MODE_PRIVATE);
+        String username = pref.getString(SHARED_PREFERENCES_KEY_EMAIL, "");
+        if (username.isEmpty()){
             intent=new Intent(this,LogInActivity.class);
-            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
             startActivity(intent);
             this.finish();
         }
         else {
             intent = new Intent(this, HomeActivity.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
             startActivity(intent);
             this.finish();
         }

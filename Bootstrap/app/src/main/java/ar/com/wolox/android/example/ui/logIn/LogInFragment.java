@@ -1,10 +1,14 @@
 package ar.com.wolox.android.example.ui.logIn;
 
 
+import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.text.TextUtils;
+import android.text.method.LinkMovementMethod;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
+
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -12,6 +16,7 @@ import javax.inject.Inject;
 
 import ar.com.wolox.android.R;
 import ar.com.wolox.android.example.ui.home.HomeActivity;
+import ar.com.wolox.android.example.ui.signUp.SignUpActivity;
 import ar.com.wolox.wolmo.core.fragment.WolmoFragment;
 import butterknife.BindView;
 import butterknife.OnClick;
@@ -21,13 +26,12 @@ public class LogInFragment extends WolmoFragment<LogInPresenter> implements ILog
     @Inject
     public LogInFragment(){
     }
-    @BindView(R.id.emailText)
+    @BindView(R.id.fragment_logIn_emailTextField)
     EditText emailText;
-    @BindView(R.id.passwordText) EditText passwordText;
-    @BindView (R.id.logIn)
-    Button logInButton;
-    @BindView (R.id.signUp) Button signUpButton;
-
+    @BindView(R.id.fragment_logIn_passwordTextField) EditText passwordText;
+    @BindView (R.id.fragment_logIn_button) Button logInButton;
+    @BindView (R.id.fragment_logIn_signUp_button) Button signUpButton;
+    @BindView (R.id.fragment_logIn_terms_clickable) TextView mTermsAndConditions;
 
 
     @Override
@@ -37,6 +41,7 @@ public class LogInFragment extends WolmoFragment<LogInPresenter> implements ILog
 
     @Override
     public void init() {
+        mTermsAndConditions.setMovementMethod(LinkMovementMethod.getInstance());
     }
 
     private boolean validarEmail(String email){
@@ -50,7 +55,7 @@ public class LogInFragment extends WolmoFragment<LogInPresenter> implements ILog
         matcher = pattern.matcher(password);
         return (!TextUtils.isEmpty(password)&& matcher.matches());
     }
-    @OnClick(R.id.logIn)
+    @OnClick(R.id.fragment_logIn_button)
     public void logIn(){
         if (emailText.getText().toString().isEmpty() && passwordText.getText().toString().isEmpty()){
             emailText.setError("You must complete both fields");
@@ -71,10 +76,9 @@ public class LogInFragment extends WolmoFragment<LogInPresenter> implements ILog
                 emailText.setError("Invalid Email");
         }
     }
-    /*
-     @OnClick(R.id.signUp)
+     @OnClick(R.id.fragment_logIn_signUp_button)
      public void signUp(){
-        //TODO START SIGN UP ACTIVITY
+         Intent intent=new Intent(getActivity(),SignUpActivity.class);
+         getActivity().startActivity(intent);
     }
-   */
 }

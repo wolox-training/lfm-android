@@ -16,8 +16,11 @@
     <string name="password_hint">Password</string>
     <string name="log_in">LOG IN</string>
     <string name="sign_up">SIGN UP</string>
-    <string name="terms">By joining you agree to our Terms &amp; Conditions</string>
+    <string name="terms">By joining you agree to our </string>
+    <string name="terms2"> <a href="http://www.wolox.com.ar">Terms &amp; Conditions</a></string>
     <string name="wolox">Wolox</string>
     <string name="logOut">LOG OUT</string>
+    <string name="shared_preferences_file">prefs</string>
+    <string name="shared_preferences_key">mail</string>
 
 </resources>

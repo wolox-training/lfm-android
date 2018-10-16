@@ -47,20 +47,22 @@
     <dimen name="input_logIn_width">215dp</dimen>
 
     <!-- Add your custom dimens here -->
-    //WLogo large
+    //log in WLogo large
     <dimen name="logo_width">60dp</dimen>
-    <dimen name="logo_height">172dp</dimen>
+    <dimen name="logo_height">140dp</dimen>
     <dimen name="logo_marginStart">0dp</dimen>
     <dimen name="logo_marginTop">20dp</dimen>
     <dimen name="logo_marginBottom">-100dp</dimen>
+    <dimen name="logo_translationY">-100dp</dimen>
 
-    //email Text Field
+
+    //log in email Text Field
     <dimen name="email_marginStart">16dp</dimen>
     <dimen name="email_marginTop">8dp</dimen>
     <dimen name="email_marginEnd">16dp</dimen>
     <dimen name="email_marginBottom">15dp</dimen>
 
-    //Password Text Field
+    //log inPassword Text Field
     <dimen name="pass_marginStart">16dp</dimen>
     <dimen name="pass_marginTop">8dp</dimen>
     <dimen name="pass_marginEnd">16dp</dimen>
@@ -79,12 +81,19 @@
     <dimen name="signUpBtn_marginBottom">15dp</dimen>
 
     //Terms Text Field
-    <dimen name="terms_marginStart">55dp</dimen>
-    <dimen name="terms_marginEnd">40dp</dimen>
-    <dimen name="terms_marginBottom">15dp</dimen>
+    <dimen name="terms_marginStart">50dp</dimen>
+    <dimen name="terms_marginEnd">0dp</dimen>
+    <dimen name="terms_marginBottom">0dp</dimen>
     <dimen name="terms_marginTop">5dp</dimen>
+
     //Bienvenido Text Field
     <dimen name="bienvenido_layout_height">76dp</dimen>
+
+    //Terms2 Text Field
+    <dimen name="terms2_marginStart">4dp</dimen>
+    <dimen name="terms2_marginEnd">20dp</dimen>
+    <dimen name="terms2_marginBottom">0dp</dimen>
+    <dimen name="terms2_marginTop">5dp</dimen>
 
     //Log In Cover
     <dimen name="logInCover_layout_width">413dp</dimen>
@@ -94,6 +103,25 @@
     <dimen name="wLogo_layout_height">56dp</dimen>
     <dimen name="wlogo_layout_width">56dp</dimen>
     <dimen name="wlogo_marginStart">16dp</dimen>
+
+    //Home Wolox Text
+    <dimen name="home_woloxText_marginStart">72dp</dimen>
+    <dimen name="home_woloxText_marginTop">16dp</dimen>
+    <dimen name="home_woloxText_textSize">24sp</dimen>
+
+    //Home Wolox Text
+    <dimen name="home_toolBar_layout_width">403dp</dimen>
+    <dimen name="home_toolBar_layout_height">48dp</dimen>
+    <dimen name="home_toolBar_translationY">56dp</dimen>
+
+    //Home menu
+    <dimen name="home_menu_marginStart">72dp</dimen>
+    <dimen name="home_menu_marginTop">56dp</dimen>
+
+
+
+
+
 
 
 

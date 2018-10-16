@@ -32,14 +32,5 @@ public class HomeFragment extends WolmoFragment<HomePresenter> implements IHomeV
     public void init() {
 
     }
-    /*
-    @OnClick(R.id.logOut)
-    public void logOut(){
-        getPresenter().doLogOut(getContext());
-        Intent intent = new Intent(this, RootActivity.class);
-        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
-        startActivity(intent);
-        getActivity().finish();
-    }
-    */
+
 }

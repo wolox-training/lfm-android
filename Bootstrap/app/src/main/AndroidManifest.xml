@@ -30,6 +30,9 @@
         <activity
             android:name=".example.ui.home.HomeActivity"
             android:screenOrientation="portrait"/>
+        <activity
+            android:name=".example.ui.signUp.SignUpActivity"
+            android:screenOrientation="portrait"/>
 
 
     </application>
