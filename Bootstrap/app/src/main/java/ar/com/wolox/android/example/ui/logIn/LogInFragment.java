@@ -20,6 +20,7 @@ import ar.com.wolox.android.example.ui.signUp.SignUpActivity;
 import ar.com.wolox.wolmo.core.fragment.WolmoFragment;
 import butterknife.BindView;
 import butterknife.OnClick;
+import kotlin.jvm.Strictfp;
 
 public class LogInFragment extends WolmoFragment<LogInPresenter> implements ILogInView{
 
@@ -32,6 +33,8 @@ public class LogInFragment extends WolmoFragment<LogInPresenter> implements ILog
     @BindView (R.id.fragment_logIn_button) Button logInButton;
     @BindView (R.id.fragment_logIn_signUp_button) Button signUpButton;
     @BindView (R.id.fragment_logIn_terms_clickable) TextView mTermsAndConditions;
+
+
 
 
     @Override
@@ -58,7 +61,7 @@ public class LogInFragment extends WolmoFragment<LogInPresenter> implements ILog
     @OnClick(R.id.fragment_logIn_button)
     public void logIn(){
         if (emailText.getText().toString().isEmpty() && passwordText.getText().toString().isEmpty()){
-            emailText.setError("You must complete both fields");
+            emailText.setError(getActivity().getResources().getString(R.string.empty_fields_error));
         }
         else{
             if (validarEmail(emailText.getText().toString())) {
@@ -70,10 +73,10 @@ public class LogInFragment extends WolmoFragment<LogInPresenter> implements ILog
                     getActivity().finish();
                 }
                 else
-                    passwordText.setError("Invalid Password");
+                    passwordText.setError(getActivity().getResources().getString(R.string.invalid_password_field));
             }
             else
-                emailText.setError("Invalid Email");
+                emailText.setError(getActivity().getResources().getString(R.string.invalid_email_field));
         }
     }
      @OnClick(R.id.fragment_logIn_signUp_button)

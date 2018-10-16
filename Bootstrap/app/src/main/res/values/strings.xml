@@ -22,5 +22,8 @@
     <string name="logOut">LOG OUT</string>
     <string name="shared_preferences_file">prefs</string>
     <string name="shared_preferences_key">mail</string>
+    <string name="empty_fields_error">You must complete both fields</string>
+    <string name="invalid_password_field">Invalid Password</string>
+    <string name="invalid_email_field">Invalid Email</string>
 
 </resources>
