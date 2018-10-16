@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Add your application custom colors here -->
+    <!-- Base application colors -->
+    <color name="colorPrimary">#a21d9bd7</color>
+    <color name="colorPrimaryDark">#0960B7</color>
+    <color name="colorAccent">#778dc63f</color>
+</resources>

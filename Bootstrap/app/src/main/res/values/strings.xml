@@ -1,0 +1,29 @@
+<resources>
+
+    <!-- General -->
+    <string name="example_title">ExampleFragment</string>
+    <string name="example_textview">Press the button to generate a random number</string>
+    <string name="example_randomize">Randomize</string>
+    <string name="example_wolox">WOLOX</string>
+    <string name="example_message">The presenter generated the number %1$d and this view is displaying it</string>
+    <string name="page_1_title">Username: %1$s</string>
+    <string name="page_1_toolbar_title">Random number example</string>
+    <string name="page_2_title">Page 2</string>
+    <string name="page_2_toolbar_title">Example Request</string>
+    <string name="fragment_example_username">Username</string>
+    <string name="fragment_example_login">Login</string>
+    <string name="email_hint">Email</string>
+    <string name="password_hint">Password</string>
+    <string name="log_in">LOG IN</string>
+    <string name="sign_up">SIGN UP</string>
+    <string name="terms">By joining you agree to our </string>
+    <string name="terms2"> <a href="http://www.wolox.com.ar">Terms &amp; Conditions</a></string>
+    <string name="wolox">Wolox</string>
+    <string name="logOut">LOG OUT</string>
+    <string name="shared_preferences_file">prefs</string>
+    <string name="shared_preferences_key">mail</string>
+    <string name="empty_fields_error">You must complete both fields</string>
+    <string name="invalid_password_field">Invalid Password</string>
+    <string name="invalid_email_field">Invalid Email</string>
+
+</resources>
