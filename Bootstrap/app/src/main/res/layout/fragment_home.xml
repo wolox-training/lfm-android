@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:orientation="vertical">>
+    android:orientation="vertical">
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/fragment_home_topToolbar"
@@ -50,7 +50,5 @@
         android:layout_marginStart="@dimen/home_menu_marginStart"
         android:layout_marginTop="@dimen/home_menu_marginTop"
         app:srcCompat="@drawable/ic_news_list_off" />
-
-
 
 </android.support.design.widget.CoordinatorLayout>

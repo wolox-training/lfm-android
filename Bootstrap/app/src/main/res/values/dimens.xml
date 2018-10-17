@@ -118,10 +118,8 @@
     <dimen name="home_menu_marginStart">72dp</dimen>
     <dimen name="home_menu_marginTop">56dp</dimen>
 
-
-
-
-
+    //progress dialog
+    <dimen name="progress_dialog_fullProgress">100</dimen>
 
 
 

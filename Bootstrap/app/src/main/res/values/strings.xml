@@ -25,5 +25,11 @@
     <string name="empty_fields_error">You must complete both fields</string>
     <string name="invalid_password_field">Invalid Password</string>
     <string name="invalid_email_field">Invalid Email</string>
+    <string name="logInError_invalid_credentials">Invalid Credentials</string>
+    <string name="logInError_serverError">Server Error, unable to connect</string>
+    <string name="logInError_noConnection">No Internet Connection</string>
+    <string name="logIn_progress_dialog">Logging in...</string>
+
+
 
 </resources>

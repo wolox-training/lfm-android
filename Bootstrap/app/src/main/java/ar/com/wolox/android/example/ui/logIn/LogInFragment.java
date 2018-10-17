@@ -2,12 +2,15 @@ package ar.com.wolox.android.example.ui.logIn;
 
 
 import android.app.FragmentTransaction;
+import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.text.TextUtils;
 import android.text.method.LinkMovementMethod;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -60,20 +63,13 @@ public class LogInFragment extends WolmoFragment<LogInPresenter> implements ILog
     }
     @OnClick(R.id.fragment_logIn_button)
     public void logIn(){
+        Context context=getContext();
         if (emailText.getText().toString().isEmpty() && passwordText.getText().toString().isEmpty()){
             emailText.setError(getActivity().getResources().getString(R.string.empty_fields_error));
         }
         else{
             if (validarEmail(emailText.getText().toString())) {
-                if (validarPassword(passwordText.getText().toString())) {
                     getPresenter().doLogIn(emailText.getText().toString(),passwordText.getText().toString(),getContext());
-                    Intent intent=new Intent(getActivity(),HomeActivity.class);
-                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                    getActivity().startActivity(intent);
-                    getActivity().finish();
-                }
-                else
-                    passwordText.setError(getActivity().getResources().getString(R.string.invalid_password_field));
             }
             else
                 emailText.setError(getActivity().getResources().getString(R.string.invalid_email_field));
@@ -83,5 +79,37 @@ public class LogInFragment extends WolmoFragment<LogInPresenter> implements ILog
      public void signUp(){
          Intent intent=new Intent(getActivity(),SignUpActivity.class);
          getActivity().startActivity(intent);
+    }
+
+    @Override
+    public void onLogInSuccessful() {
+        Intent intent=new Intent(getActivity(),HomeActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        getActivity().startActivity(intent);
+        getActivity().finish();
+    }
+
+    @Override
+    public void setErrorCode(int code) {
+        Context context=getContext();
+        Toast toast=Toast.makeText(context," ",Toast.LENGTH_LONG);
+        switch (code){
+            case 1:
+               toast.setText(getActivity().getResources().getString(R.string.logInError_invalid_credentials));
+               toast.show();
+                break;
+
+            case 2:
+                toast.setText(getActivity().getResources().getString(R.string.logInError_serverError));
+                toast.show();
+                break;
+
+            case 3:
+                toast.setText(getActivity().getResources().getString(R.string.logInError_noConnection));
+                toast.show();
+                break;
+
+        }
+
     }
 }
