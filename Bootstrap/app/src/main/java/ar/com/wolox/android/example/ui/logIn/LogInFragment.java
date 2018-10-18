@@ -28,7 +28,7 @@ public class LogInFragment extends WolmoFragment<LogInPresenter> implements ILog
     @BindView(R.id.fragment_logIn_passwordTextField) EditText passwordText;
     @BindView (R.id.fragment_logIn_button) Button logInButton;
     @BindView (R.id.fragment_logIn_signUp_button) Button signUpButton;
-    @BindView (R.id.fragment_logIn_terms_clickable) TextView mTermsAndConditions;
+    @BindView (R.id.fragment_logIn_terms_text) TextView mTermsAndConditions;
 
     private static final String PROGRESS_DIALOG_MESSAGE="Logging in...";
     ProgressDialog progress_dialog;

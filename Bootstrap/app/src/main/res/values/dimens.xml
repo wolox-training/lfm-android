@@ -77,7 +77,7 @@
 
     <dimen name="terms_marginStart">50dp</dimen>
     <dimen name="terms_marginEnd">0dp</dimen>
-    <dimen name="terms_marginBottom">0dp</dimen>
+    <dimen name="terms_marginBottom">30dp</dimen>
     <dimen name="terms_marginTop">5dp</dimen>
 
     <dimen name="terms2_marginStart">4dp</dimen>
