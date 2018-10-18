@@ -28,15 +28,12 @@ public class LogInPresenter extends BasePresenter<ILogInView> {
 
     private static final String SHARED_PREFERENCES="prefs";
     private static final String SHARED_PREFERENCES_KEY_EMAIL="mail";
-    private static final String PROGRESS_DIALOG_MESSAGE="Logging in...";
+
     @Inject
     public LogInPresenter(){
 
     }
     public void doLogIn(String email, String password, Context context) {
-        ProgressDialog pd = new ProgressDialog(context);
-        pd.setMessage(PROGRESS_DIALOG_MESSAGE);
-        pd.show();
        mRetrofitServices.getService(UserService.class).doLogin(email,password).enqueue(new NetworkCallback<List<User>>() {
            @Override
            public void onResponseSuccessful(@Nullable List<User> listUser) {
@@ -45,24 +42,20 @@ public class LogInPresenter extends BasePresenter<ILogInView> {
                    SharedPreferences.Editor editor = sharedPref.edit();
                    editor.putString(SHARED_PREFERENCES_KEY_EMAIL, email);
                    editor.apply();
-                   pd.dismiss();
                    getView().onLogInSuccessful();
                }
                else{
-                   pd.dismiss();
                    getView().setErrorCode(1);
                }
            }
 
            @Override
            public void onResponseFailed(@Nullable ResponseBody responseBody, int i) {
-               pd.dismiss();
                getView().setErrorCode(2);
            }
 
            @Override
            public void onCallFailure(Throwable throwable) {
-                pd.dismiss();
                 getView().setErrorCode(3);
            }
        });

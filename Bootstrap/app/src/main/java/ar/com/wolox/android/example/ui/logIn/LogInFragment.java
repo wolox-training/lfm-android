@@ -1,7 +1,4 @@
 package ar.com.wolox.android.example.ui.logIn;
-
-
-import android.app.FragmentTransaction;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
@@ -11,19 +8,15 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
 import javax.inject.Inject;
-
 import ar.com.wolox.android.R;
 import ar.com.wolox.android.example.ui.home.HomeActivity;
 import ar.com.wolox.android.example.ui.signUp.SignUpActivity;
 import ar.com.wolox.wolmo.core.fragment.WolmoFragment;
 import butterknife.BindView;
 import butterknife.OnClick;
-import kotlin.jvm.Strictfp;
 
 public class LogInFragment extends WolmoFragment<LogInPresenter> implements ILogInView{
 
@@ -37,8 +30,8 @@ public class LogInFragment extends WolmoFragment<LogInPresenter> implements ILog
     @BindView (R.id.fragment_logIn_signUp_button) Button signUpButton;
     @BindView (R.id.fragment_logIn_terms_clickable) TextView mTermsAndConditions;
 
-
-
+    private static final String PROGRESS_DIALOG_MESSAGE="Logging in...";
+    ProgressDialog progress_dialog;
 
     @Override
     public int layout() {
@@ -63,12 +56,14 @@ public class LogInFragment extends WolmoFragment<LogInPresenter> implements ILog
     }
     @OnClick(R.id.fragment_logIn_button)
     public void logIn(){
-        Context context=getContext();
+        progress_dialog=new ProgressDialog(getContext());
         if (emailText.getText().toString().isEmpty() && passwordText.getText().toString().isEmpty()){
             emailText.setError(getActivity().getResources().getString(R.string.empty_fields_error));
         }
         else{
             if (validarEmail(emailText.getText().toString())) {
+                    progress_dialog.setMessage(PROGRESS_DIALOG_MESSAGE);
+                    progress_dialog.show();
                     getPresenter().doLogIn(emailText.getText().toString(),passwordText.getText().toString(),getContext());
             }
             else
@@ -91,8 +86,8 @@ public class LogInFragment extends WolmoFragment<LogInPresenter> implements ILog
 
     @Override
     public void setErrorCode(int code) {
-        Context context=getContext();
-        Toast toast=Toast.makeText(context," ",Toast.LENGTH_LONG);
+        Toast toast=Toast.makeText(getContext()," ",Toast.LENGTH_LONG);
+        progress_dialog.dismiss();
         switch (code){
             case 1:
                toast.setText(getActivity().getResources().getString(R.string.logInError_invalid_credentials));
@@ -108,7 +103,6 @@ public class LogInFragment extends WolmoFragment<LogInPresenter> implements ILog
                 toast.setText(getActivity().getResources().getString(R.string.logInError_noConnection));
                 toast.show();
                 break;
-
         }
 
     }
