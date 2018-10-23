@@ -49,5 +49,5 @@ abstract class AppModule {
     internal abstract fun Home2Activity(): Home2Activity
 
     @ContributesAndroidInjector
-    internal abstract fun Home2Fragment(): HomeFragment
+    internal abstract fun Home2Fragment(): Home2Fragment
 }

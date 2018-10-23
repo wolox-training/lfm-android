@@ -27,4 +27,6 @@
     <string name="logInError_invalid_credentials">Invalid Credentials</string>
     <string name="logInError_serverError">Server Error, unable to connect</string>
     <string name="logInError_noConnection">No Internet Connection</string>
+    <string name="home_newsTab">NEWS</string>
+    <string name="home_profileTab">PROFILE</string>
 </resources>

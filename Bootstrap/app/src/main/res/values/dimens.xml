@@ -91,11 +91,11 @@
 
     <dimen name="wLogo_layout_height">56dp</dimen>
     <dimen name="wlogo_layout_width">56dp</dimen>
-    <dimen name="wlogo_marginStart">16dp</dimen>
+    <dimen name="wlogo_marginStart">0dp</dimen>
 
 
-    <dimen name="home_woloxText_marginStart">72dp</dimen>
-    <dimen name="home_woloxText_marginTop">16dp</dimen>
+    <dimen name="home_woloxText_marginStart">0dp</dimen>
+    <dimen name="home_woloxText_marginTop">14dp</dimen>
     <dimen name="home_woloxText_textSize">24sp</dimen>
 
 
