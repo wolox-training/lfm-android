@@ -1,103 +1,88 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:orientation="vertical">
-
-    <ImageView
-        android:id="@+id/fragment_logIn_coverPhoto"
-        android:layout_width="@dimen/logInCover_layout_width"
-        android:layout_height="@dimen/logInCover_layout_height"
-        android:background="@drawable/login_cover"
-        android:src="@drawable/gradient_login" />
-
-    <ImageView
-        android:id="@+id/fragment_logIn_logo"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/logo_height"
-        android:layout_marginStart="@dimen/logo_marginStart"
-        android:layout_marginTop="@dimen/logo_marginTop"
-        android:layout_marginBottom="@dimen/logo_marginBottom"
-        android:adjustViewBounds="false"
-        android:src="@drawable/wolox_logo_large"
-        android:translationY="@dimen/logo_translationY" />
-
-    <EditText
-        android:id="@+id/fragment_logIn_emailTextField"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/email_marginStart"
-        android:layout_marginTop="@dimen/email_marginTop"
-        android:layout_marginEnd="@dimen/email_marginEnd"
-        android:layout_marginBottom="@dimen/email_marginBottom"
-        android:ems="10"
-        android:hint="@string/email_hint"
-        android:inputType="textEmailAddress"
-        android:singleLine="true" />
-
-    <EditText
-        android:id="@+id/fragment_logIn_passwordTextField"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/pass_marginStart"
-        android:layout_marginBottom="@dimen/email_marginBottom"
-        android:ems="10"
-        android:hint="@string/password_hint"
-        android:inputType="textPassword" />
-
-    <Button
-        android:id="@+id/fragment_logIn_button"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginStart="@dimen/logInBtn_marginStart"
-        android:layout_marginTop="@dimen/logInBtn_marginTop"
-        android:layout_marginEnd="@dimen/logInBtn_marginEnd"
-        android:layout_marginBottom="@dimen/logInBtn_marginBottom"
-        android:background="@drawable/myrect"
-        android:clickable="true"
-        android:focusable="true"
-        android:text="@string/log_in" />
-
-    <Button
-        android:id="@+id/fragment_logIn_signUp_button"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginStart="@dimen/signUpBtn_marginStart"
-        android:layout_marginEnd="@dimen/signUpBtn_marginEnd"
-        android:layout_marginBottom="@dimen/signUpBtn_marginBottom"
-        android:background="@android:color/holo_blue_light"
-        android:text="@string/sign_up"
-        android:textColor="@android:color/white" />
-
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
+        android:orientation="vertical">
+        <FrameLayout
+            android:layout_width="@dimen/logInCover_layout_width"
+            android:layout_height="@dimen/logInCover_layout_height">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/logInCover_layout_height">
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/login_cover" />
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/gradient_login" />
+            </RelativeLayout>
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/logo_height"
+                android:layout_gravity="bottom"
+                android:layout_marginBottom="@dimen/logo_marginBottom"
+                android:layout_marginStart="@dimen/logo_marginStart"
+                android:layout_marginTop="@dimen/logo_marginTop"
+                android:adjustViewBounds="false"
+                android:src="@drawable/wolox_logo_large"
+                android:translationY="@dimen/logo_translationY" />
+        </FrameLayout>
+        <EditText
+            android:id="@+id/fragment_logIn_emailTextField"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/email_marginBottom"
+            android:layout_marginEnd="@dimen/email_marginEnd"
+            android:layout_marginStart="@dimen/email_marginStart"
+            android:layout_marginTop="@dimen/email_marginTop"
+            android:hint="@string/email_hint"
+            android:inputType="textEmailAddress"
+            android:singleLine="true"
+            android:textSize="@dimen/font_medium" />
+        <EditText
+            android:id="@+id/fragment_logIn_passwordTextField"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/email_marginBottom"
+            android:layout_marginEnd="@dimen/email_marginEnd"
+            android:layout_marginStart="@dimen/pass_marginStart"
+            android:hint="@string/password_hint"
+            android:inputType="textPassword"
+            android:textSize="@dimen/font_medium" />
+        <Button
+            android:id="@+id/fragment_logIn_button"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="@dimen/logInBtn_marginBottom"
+            android:layout_marginEnd="@dimen/logInBtn_marginEnd"
+            android:layout_marginStart="@dimen/logInBtn_marginStart"
+            android:layout_marginTop="@dimen/logInBtn_marginTop"
+            android:background="@drawable/myrect"
+            android:clickable="true"
+            android:focusable="true"
+            android:text="@string/log_in" />
+        <Button
+            android:id="@+id/fragment_logIn_signUp_button"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="@dimen/signUpBtn_marginBottom"
+            android:layout_marginEnd="@dimen/signUpBtn_marginEnd"
+            android:layout_marginStart="@dimen/signUpBtn_marginStart"
+            android:background="@android:color/holo_blue_light"
+            android:text="@string/sign_up"
+            android:textColor="@android:color/white" />
+    </LinearLayout>
+    <TextView
+        android:id="@+id/fragment_logIn_terms_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-
-        <TextView
-            android:id="@+id/fragment_logIn_terms_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/terms_marginStart"
-            android:layout_marginTop="@dimen/terms_marginTop"
-            android:layout_marginEnd="@dimen/terms_marginEnd"
-            android:layout_marginBottom="@dimen/terms_marginBottom"
-            android:autoLink="web"
-            android:text="@string/terms" />
-
-        <TextView
-            android:id="@+id/fragment_logIn_terms_clickable"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/terms2_marginStart"
-            android:layout_marginTop="@dimen/terms2_marginTop"
-            android:layout_marginEnd="@dimen/terms2_marginEnd"
-            android:layout_marginBottom="@dimen/terms2_marginBottom"
-            android:text="@string/terms2" />
-    </LinearLayout>
-</LinearLayout>
+        android:layout_marginBottom="@dimen/terms_marginBottom"
+        android:linksClickable="true"
+        android:layout_gravity="bottom|center"
+        android:text="@string/terms" />
+</FrameLayout>

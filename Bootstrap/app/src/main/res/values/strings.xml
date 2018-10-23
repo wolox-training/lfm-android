@@ -16,8 +16,7 @@
     <string name="password_hint">Password</string>
     <string name="log_in">LOG IN</string>
     <string name="sign_up">SIGN UP</string>
-    <string name="terms">By joining you agree to our </string>
-    <string name="terms2"> <a href="http://www.wolox.com.ar">Terms &amp; Conditions</a></string>
+    <string name="terms"> By joining you agree to our <a href="http://www.wolox.com.ar/">Terms &amp; Conditions</a></string>
     <string name="wolox">Wolox</string>
     <string name="logOut">LOG OUT</string>
     <string name="shared_preferences_file">prefs</string>
@@ -25,5 +24,7 @@
     <string name="empty_fields_error">You must complete both fields</string>
     <string name="invalid_password_field">Invalid Password</string>
     <string name="invalid_email_field">Invalid Email</string>
-
+    <string name="logInError_invalid_credentials">Invalid Credentials</string>
+    <string name="logInError_serverError">Server Error, unable to connect</string>
+    <string name="logInError_noConnection">No Internet Connection</string>
 </resources>
