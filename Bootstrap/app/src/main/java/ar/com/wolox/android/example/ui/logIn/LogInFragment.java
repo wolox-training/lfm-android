@@ -1,6 +1,5 @@
 package ar.com.wolox.android.example.ui.logIn;
 import android.app.ProgressDialog;
-import android.content.Context;
 import android.content.Intent;
 import android.text.TextUtils;
 import android.text.method.LinkMovementMethod;
@@ -78,7 +77,7 @@ public class LogInFragment extends WolmoFragment<LogInPresenter> implements ILog
 
     @Override
     public void onLogInSuccessful() {
-        Intent intent=new Intent(getActivity(),HomeActivity.class);
+        Intent intent=new Intent(getActivity(), HomeActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
         getActivity().startActivity(intent);
         getActivity().finish();

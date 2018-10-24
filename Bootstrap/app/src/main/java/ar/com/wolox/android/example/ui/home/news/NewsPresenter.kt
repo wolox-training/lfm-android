@@ -1,4 +1,4 @@
-package ar.com.wolox.android.example.ui.home2
+package ar.com.wolox.android.example.ui.home
 
 
 import ar.com.wolox.wolmo.core.presenter.BasePresenter

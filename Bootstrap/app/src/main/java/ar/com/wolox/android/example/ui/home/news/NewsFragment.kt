@@ -1,11 +1,10 @@
-package ar.com.wolox.android.example.ui.home2
+package ar.com.wolox.android.example.ui.home
 
 import ar.com.wolox.android.R
 import ar.com.wolox.wolmo.core.fragment.WolmoFragment
-import butterknife.BindView
 import javax.inject.Inject
 
-class NewsFragment : WolmoFragment<ProfilePresenter>(), IProfileView {
+class NewsFragment @Inject constructor() :  WolmoFragment<ProfilePresenter>(), INewsView {
 
     override fun layout(): Int = R.layout.fragment_news
 
