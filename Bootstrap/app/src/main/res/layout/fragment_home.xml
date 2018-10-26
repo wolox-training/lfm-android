@@ -31,13 +31,11 @@
                 <ImageView
                     android:layout_width="@dimen/wlogo_layout_width"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/logo_marginStart"
                     android:src="@drawable/wlogo" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/home_woloxText_marginStart"
                     android:layout_marginTop="@dimen/home_woloxText_marginTop"
                     android:layout_marginBottom="@dimen/home_woloxText_marginTop"
                     android:text="@string/wolox"

@@ -4,17 +4,22 @@ import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
 import android.widget.TextView
 import ar.com.wolox.android.R
 import ar.com.wolox.android.example.ui.home.NewsPresenter
+import com.facebook.drawee.view.SimpleDraweeView
+import org.ocpsoft.prettytime.PrettyTime
+import java.text.SimpleDateFormat
+import java.util.*
 
 class NewsAdapter(private val myDataset: ArrayList<NewsPresenter.NewsData>) :
         RecyclerView.Adapter<NewsAdapter.NewsHolder>(){
     class NewsHolder(itemView: View?) : RecyclerView.ViewHolder(itemView) {
-        var newsImage: ImageView = itemView!!.findViewById(R.id.news_imageView)
         var newsTitle: TextView = itemView!!.findViewById(R.id.news_textHeader)
         var newsText: TextView = itemView!!.findViewById(R.id.news_textDescription)
+        var newsPhoto:SimpleDraweeView=itemView!!.findViewById(R.id.news_photo)
+        var newsTime:TextView=itemView!!.findViewById(R.id.news_time)
+
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NewsHolder {
@@ -26,8 +31,12 @@ class NewsAdapter(private val myDataset: ArrayList<NewsPresenter.NewsData>) :
     }
 
     override fun onBindViewHolder(holder: NewsHolder, position: Int) {
-        holder.newsImage.setImageResource(myDataset.get(position).image)
-        holder.newsTitle.setText(myDataset.get(position).newsHeader)
-        holder.newsText.setText(myDataset.get(position).newsDescription)
+        val prettyTime = PrettyTime()
+        val simpleDateFormatPattern = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
+        val simpleDateFormat = SimpleDateFormat(simpleDateFormatPattern)
+        holder.newsPhoto.setImageURI(myDataset[position].image,this)
+        holder.newsTitle.setText(myDataset[position].newsHeader)
+        holder.newsTime.setText(prettyTime.format(simpleDateFormat.parse(myDataset[position].time)))
+        holder.newsText.setText(myDataset[position].newsDescription)
     }
 }

@@ -50,7 +50,6 @@
 
     <dimen name="logo_width">60dp</dimen>
     <dimen name="logo_height">140dp</dimen>
-    <dimen name="logo_marginStart">0dp</dimen>
     <dimen name="logo_marginTop">20dp</dimen>
     <dimen name="logo_marginBottom">-100dp</dimen>
     <dimen name="logo_translationY">-100dp</dimen>
@@ -71,18 +70,15 @@
     <dimen name="logInBtn_marginBottom">20dp</dimen>
 
     <dimen name="signUpBtn_marginStart">16dp</dimen>
-    <dimen name="signUpBtn_marginTop">0dp</dimen>
     <dimen name="signUpBtn_marginEnd">16dp</dimen>
     <dimen name="signUpBtn_marginBottom">15dp</dimen>
 
     <dimen name="terms_marginStart">50dp</dimen>
-    <dimen name="terms_marginEnd">0dp</dimen>
     <dimen name="terms_marginBottom">30dp</dimen>
     <dimen name="terms_marginTop">5dp</dimen>
 
     <dimen name="terms2_marginStart">4dp</dimen>
     <dimen name="terms2_marginEnd">20dp</dimen>
-    <dimen name="terms2_marginBottom">0dp</dimen>
     <dimen name="terms2_marginTop">5dp</dimen>
 
     <dimen name="logInCover_layout_width">413dp</dimen>
@@ -91,10 +87,8 @@
 
     <dimen name="wLogo_layout_height">56dp</dimen>
     <dimen name="wlogo_layout_width">56dp</dimen>
-    <dimen name="wlogo_marginStart">0dp</dimen>
 
 
-    <dimen name="home_woloxText_marginStart">0dp</dimen>
     <dimen name="home_woloxText_marginTop">14dp</dimen>
     <dimen name="home_woloxText_textSize">24sp</dimen>
 
