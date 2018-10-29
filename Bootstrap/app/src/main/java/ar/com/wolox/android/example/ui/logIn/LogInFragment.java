@@ -94,12 +94,12 @@ public class LogInFragment extends WolmoFragment<LogInPresenter> implements ILog
                 break;
 
             case 2:
-                toast.setText(getActivity().getResources().getString(R.string.logInError_serverError));
+                toast.setText(getActivity().getResources().getString(R.string.serverError));
                 toast.show();
                 break;
 
             case 3:
-                toast.setText(getActivity().getResources().getString(R.string.logInError_noConnection));
+                toast.setText(getActivity().getResources().getString(R.string.noConnection));
                 toast.show();
                 break;
         }

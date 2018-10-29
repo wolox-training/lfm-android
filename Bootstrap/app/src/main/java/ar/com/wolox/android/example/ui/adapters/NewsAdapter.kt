@@ -6,13 +6,13 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import ar.com.wolox.android.R
-import ar.com.wolox.android.example.ui.home.NewsPresenter
+import ar.com.wolox.android.example.model.News
 import com.facebook.drawee.view.SimpleDraweeView
 import org.ocpsoft.prettytime.PrettyTime
 import java.text.SimpleDateFormat
 import java.util.*
 
-class NewsAdapter(private val myDataset: ArrayList<NewsPresenter.NewsData>) :
+class NewsAdapter(private val myDataset: ArrayList<News>) :
         RecyclerView.Adapter<NewsAdapter.NewsHolder>(){
     class NewsHolder(itemView: View?) : RecyclerView.ViewHolder(itemView) {
         var newsTitle: TextView = itemView!!.findViewById(R.id.news_textHeader)
@@ -34,9 +34,9 @@ class NewsAdapter(private val myDataset: ArrayList<NewsPresenter.NewsData>) :
         val prettyTime = PrettyTime()
         val simpleDateFormatPattern = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
         val simpleDateFormat = SimpleDateFormat(simpleDateFormatPattern)
-        holder.newsPhoto.setImageURI(myDataset[position].image,this)
-        holder.newsTitle.setText(myDataset[position].newsHeader)
-        holder.newsTime.setText(prettyTime.format(simpleDateFormat.parse(myDataset[position].time)))
-        holder.newsText.setText(myDataset[position].newsDescription)
+        holder.newsPhoto.setImageURI(myDataset[position].picture,this)
+        holder.newsTitle.text = myDataset[position].title
+        holder.newsTime.text = prettyTime.format(simpleDateFormat.parse(myDataset[position].createdAt))
+        holder.newsText.text = myDataset[position].text
     }
 }

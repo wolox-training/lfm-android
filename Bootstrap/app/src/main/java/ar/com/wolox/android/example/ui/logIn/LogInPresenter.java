@@ -1,25 +1,15 @@
 package ar.com.wolox.android.example.ui.logIn;
 
-import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.support.annotation.Nullable;
-import android.util.Log;
-import android.widget.EditText;
-
 import java.util.List;
-
 import javax.inject.Inject;
-
-import ar.com.wolox.android.R;
-import ar.com.wolox.android.example.TrainingApplication;
 import ar.com.wolox.android.example.model.User;
-import ar.com.wolox.android.example.network.PostService;
 import ar.com.wolox.android.example.network.UserService;
 import ar.com.wolox.wolmo.core.presenter.BasePresenter;
 import ar.com.wolox.wolmo.networking.retrofit.RetrofitServices;
 import ar.com.wolox.wolmo.networking.retrofit.callback.NetworkCallback;
-import butterknife.BindView;
 import okhttp3.ResponseBody;
 
 public class LogInPresenter extends BasePresenter<ILogInView> {
