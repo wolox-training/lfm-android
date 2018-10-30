@@ -128,6 +128,7 @@ dependencies {
     api 'com.android.support:design:27.1.1'
     implementation 'com.facebook.fresco:fresco:1.11.0'
     api 'org.ocpsoft.prettytime:prettytime:4.0.1.Final'
+    implementation 'android.arch.paging:runtime:1.0.0'
 
 
     // Testing dependencies

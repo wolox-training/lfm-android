@@ -6,7 +6,6 @@ import android.support.v7.widget.DividerItemDecoration
 import android.support.v7.widget.DividerItemDecoration.VERTICAL
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
-import android.widget.ImageView
 import android.widget.Toast
 import ar.com.wolox.android.R
 import ar.com.wolox.android.example.model.News
@@ -16,7 +15,9 @@ import com.facebook.drawee.backends.pipeline.Fresco
 import javax.inject.Inject
 
 
-class NewsFragment @Inject constructor() :  WolmoFragment<ProfilePresenter>(), INewsView, SwipeRefreshLayout.OnRefreshListener {
+
+
+class NewsFragment @Inject constructor() :  WolmoFragment<NewsPresenter>(), INewsView, SwipeRefreshLayout.OnRefreshListener {
 
 
     private lateinit var mRecyclerView: RecyclerView
@@ -33,19 +34,14 @@ class NewsFragment @Inject constructor() :  WolmoFragment<ProfilePresenter>(), I
         fab = activity!!.findViewById(R.id.fab)
         fab.show()
         mSwipeRefreshLayout.setOnRefreshListener(this)
-        var mLikeButton=activity!!.findViewById<ImageView>(R.id.vLikeButton)
-
-        //val imagen= Uri.parse("https://cdn-images-1.medium.com/fit/c/100/100/1*RIlH4dGIVDccLZ0JTH3lhg.png")
-        //testData=NewsPresenter.NewsData("Titulo","descripcion...","2016-07-18T14:00:29.985Z",imagen)
-        //for (i in 1..15) myDataSet.add(testData)
-
-        mLayoutManager=LinearLayoutManager(activity)
+        var items: MutableList<News> = presenter.initialLoad() as MutableList<News>
+        this.mLayoutManager =LinearLayoutManager(activity)
         mFragmentRecycleAdapter=NewsAdapter(myDataSet)
-        val mLineDividerDecoration =DividerItemDecoration(context,VERTICAL)
+        val mLineDividerDecoration=DividerItemDecoration(context,VERTICAL)
         mRecyclerView= activity!!.findViewById<RecyclerView>(R.id.vNewsRecycler).apply {
             setHasFixedSize(false)
             layoutManager=mLayoutManager
-            adapter=NewsAdapter(myDataSet)
+            adapter=NewsAdapter(items)
         }
         mRecyclerView.addItemDecoration(mLineDividerDecoration)
     }
@@ -53,15 +49,14 @@ class NewsFragment @Inject constructor() :  WolmoFragment<ProfilePresenter>(), I
     override fun onRefresh() {
         val toast = Toast.makeText(context, "Refreshing News", Toast.LENGTH_LONG)
         toast.show()
-        //TRAER LAS NOTICIAS NUEVAS
-
+        myDataSet= presenter.updateNews(5) as ArrayList<News>
+        mFragmentRecycleAdapter.notifyDataSetChanged()
         mSwipeRefreshLayout.isRefreshing=false
-
     }
 
-     override fun setErrorCode(code: Int) {
+     override fun setErrorCode(i: Int) {
         val toastError = Toast.makeText(context, " ", Toast.LENGTH_LONG)
-        when (code) {
+        when (i) {
             1 -> {
                 toastError.setText(activity!!.resources.getString(R.string.noNewNews))
                 toastError.show()
@@ -78,10 +73,11 @@ class NewsFragment @Inject constructor() :  WolmoFragment<ProfilePresenter>(), I
 
         }
     }
+
     override fun updateXNewNews(list: List<News>, itemCount: Int) {
         var  lastPosition=myDataSet.size
         if (myDataSet.addAll(list)){
-            val oldDataSet=myDataSet.set(lastPosition)
+           // val oldDataSet=myDataSet.set(lastPosition)
             mFragmentRecycleAdapter.notifyDataSetChanged()
         }
     }
