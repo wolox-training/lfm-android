@@ -3,7 +3,6 @@ package ar.com.wolox.android.example.ui.home
 import android.support.design.widget.FloatingActionButton
 import android.support.v4.widget.SwipeRefreshLayout
 import android.support.v7.widget.DividerItemDecoration
-import android.support.v7.widget.DividerItemDecoration.VERTICAL
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.widget.Toast
@@ -15,41 +14,58 @@ import com.facebook.drawee.backends.pipeline.Fresco
 import javax.inject.Inject
 
 
-
-
 class NewsFragment @Inject constructor() :  WolmoFragment<NewsPresenter>(), INewsView, SwipeRefreshLayout.OnRefreshListener {
-
 
     private lateinit var mRecyclerView: RecyclerView
     private lateinit var mFragmentRecycleAdapter: NewsAdapter
-    private lateinit var  mLayoutManager: RecyclerView.LayoutManager
-    private lateinit var testData:News
-    private var myDataSet= arrayListOf<News>()
+    private lateinit var  mLayoutManager: LinearLayoutManager
     private lateinit var fab:FloatingActionButton
     private lateinit var mSwipeRefreshLayout: SwipeRefreshLayout
+    private lateinit var  mLineDividerDecoration:DividerItemDecoration
+    private  var N_ITEMS_TO_REFRESH=5
+    private lateinit var newsList: List<News>
+
     override fun layout(): Int = R.layout.fragment_news
+
     override fun init() {
+        newsList= listOf()
+        newsList=presenter.initialLoad()
         Fresco.initialize(activity)
         mSwipeRefreshLayout=activity!!.findViewById(R.id.vRefresh)
         fab = activity!!.findViewById(R.id.fab)
         fab.show()
         mSwipeRefreshLayout.setOnRefreshListener(this)
-        var items: MutableList<News> = presenter.initialLoad() as MutableList<News>
-        this.mLayoutManager =LinearLayoutManager(activity)
-        mFragmentRecycleAdapter=NewsAdapter(myDataSet)
-        val mLineDividerDecoration=DividerItemDecoration(context,VERTICAL)
+        this.mLayoutManager = LinearLayoutManager(activity)
+        mFragmentRecycleAdapter=NewsAdapter()
+        mLineDividerDecoration=DividerItemDecoration(context, DividerItemDecoration.VERTICAL)
         mRecyclerView= activity!!.findViewById<RecyclerView>(R.id.vNewsRecycler).apply {
             setHasFixedSize(false)
             layoutManager=mLayoutManager
-            adapter=NewsAdapter(items)
+            adapter=mFragmentRecycleAdapter
         }
         mRecyclerView.addItemDecoration(mLineDividerDecoration)
+        mFragmentRecycleAdapter.addDataSet(newsList)
+        mRecyclerView.addOnScrollListener(object :RecyclerView.OnScrollListener(){
+            override fun onScrolled(recyclerView: RecyclerView?, dx: Int, dy: Int) {
+                super.onScrolled(recyclerView, dx, dy)
+                var visibleItems=mLayoutManager.childCount
+                var totalItems=mLayoutManager.itemCount
+                var firstItem=mLayoutManager.findFirstVisibleItemPosition()
+                if (firstItem < (firstItem+(visibleItems-N_ITEMS_TO_REFRESH)) ){
+
+                        newsList=presenter.loadNmoreNews(N_ITEMS_TO_REFRESH)
+                        mFragmentRecycleAdapter.addDataSet(newsList)
+                }
+                mFragmentRecycleAdapter.notifyDataSetChanged()
+            }
+        })
     }
 
     override fun onRefresh() {
         val toast = Toast.makeText(context, "Refreshing News", Toast.LENGTH_LONG)
         toast.show()
-        myDataSet= presenter.updateNews(5) as ArrayList<News>
+        newsList= presenter.updateNews(5)
+        mFragmentRecycleAdapter.addDataSet(newsList)
         mFragmentRecycleAdapter.notifyDataSetChanged()
         mSwipeRefreshLayout.isRefreshing=false
     }
@@ -74,15 +90,6 @@ class NewsFragment @Inject constructor() :  WolmoFragment<NewsPresenter>(), INew
         }
     }
 
-    override fun updateXNewNews(list: List<News>, itemCount: Int) {
-        var  lastPosition=myDataSet.size
-        if (myDataSet.addAll(list)){
-           // val oldDataSet=myDataSet.set(lastPosition)
-            mFragmentRecycleAdapter.notifyDataSetChanged()
-        }
-    }
-    override fun addXOlderNews(list: List<News>, X: Int) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-    }
+
 }
 
