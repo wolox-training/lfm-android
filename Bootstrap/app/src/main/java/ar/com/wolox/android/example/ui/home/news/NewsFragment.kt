@@ -45,6 +45,7 @@ class NewsFragment @Inject constructor() :  WolmoFragment<NewsPresenter>(), INew
         }
         mRecyclerView.addItemDecoration(mLineDividerDecoration)
         mFragmentRecycleAdapter.addDataSet(newsList)
+
         mRecyclerView.addOnScrollListener(object :RecyclerView.OnScrollListener(){
             override fun onScrolled(recyclerView: RecyclerView?, dx: Int, dy: Int) {
                 super.onScrolled(recyclerView, dx, dy)

@@ -5,7 +5,6 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.READ_LOGS" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-
     <application
         android:name=".example.TrainingApplication"
         android:allowBackup="true"
@@ -25,12 +24,21 @@
             android:name=".example.ui.logIn.LogInActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".example.ui.home.HomeActivity"
-            android:screenOrientation="portrait" />
-        <activity
             android:name=".example.ui.signUp.SignUpActivity"
             android:screenOrientation="portrait" />
+        <activity
+            android:name=".example.ui.home.HomeActivity"
+            android:screenOrientation="portrait"
+            android:launchMode="singleTop" />
+        <activity
+            android:name=".example.ui.newsDetail.NewsDetailActivity"
+            android:label="Titulo"
+            android:parentActivityName=".example.ui.home.HomeActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".example.ui.home.HomeActivity" />
+    </activity>
 
-    </application>
+</application>
 
 </manifest>
