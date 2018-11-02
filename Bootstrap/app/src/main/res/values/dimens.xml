@@ -101,4 +101,7 @@
     <dimen name="home_menu_marginStart">72dp</dimen>
     <dimen name="home_menu_marginTop">56dp</dimen>
 
+    <dimen name="newsDetail_Image_layoutHeight">250dp</dimen>
+    <dimen name="newsDetail_detailDescription_layoutHeight">350dp</dimen>
+
 </resources>

@@ -1,8 +1,8 @@
 package ar.com.wolox.android.example.ui.adapters
 
 
-import android.content.Intent
 import android.net.Uri
+import android.os.Bundle
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -41,8 +41,12 @@ class NewsAdapter : RecyclerView.Adapter<NewsHolder>(){
             holder.like.isSelected=!holder.like.isSelected
         }
         holder.itemView.setOnClickListener {
-            val intent = Intent(holder.itemView.context, NewsDetailActivity(dataSet[position])::class.java)
-            holder.itemView.context.startActivity(intent)
+            var bundle=Bundle()
+            bundle.putString("Title", dataSet[position].title)
+            bundle.putString("Description", dataSet[position].text)
+            bundle.putString("Image",dataSet[position].picture)
+            bundle.putString("Time",prettyTime.format(simpleDateFormat.parse(dataSet[position].createdAt)))
+            NewsDetailActivity.startNewsDetailActivity(holder.itemView.context,bundle)
         }
     }
 }

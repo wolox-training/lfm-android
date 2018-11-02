@@ -8,50 +8,56 @@ import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toolbar
 import ar.com.wolox.android.R
-import ar.com.wolox.android.example.model.News
 import ar.com.wolox.wolmo.core.fragment.WolmoFragment
 import com.facebook.drawee.backends.pipeline.Fresco
-import org.ocpsoft.prettytime.PrettyTime
-import java.text.SimpleDateFormat
 
 
 class NewsDetailFragment: WolmoFragment<NewsDetailPresenter>(), INewsDetailView{
-    private var mTitle= activity!!.findViewById<TextView>(R.id.vNewsDetailTitle)
-    private var mNewsDescription=activity!!.findViewById<TextView>(R.id.vNewsDetailDescription)
-    private var mNewsTime=activity!!.findViewById<TextView>(R.id.vNewsDetailTime)
-    private var mNewsImage=activity!!.findViewById<ImageView>(R.id.vNewsDetailImage)
-    private var mNewsLike=activity!!.findViewById<ImageView>(R.id.vNewsDetailLike)
+    private lateinit var mTitle:TextView
+    private lateinit var mNewsDescription:TextView
+    private lateinit var mNewsTime:TextView
+    private lateinit var mNewsImage:ImageView
+    private lateinit var mNewsLike:ImageView
+    lateinit var title:String
+    lateinit var newsDescription:String
+    lateinit var newsTime:String
+    lateinit var newsImage:String
+
+
     companion object  {
-        fun instance(newsDetail: News):NewsDetailFragment{
+        fun instance(bundle: Bundle):NewsDetailFragment{
             val newDetailsFragment=NewsDetailFragment()
-            var bundle=Bundle()
-            val prettyTime = PrettyTime()
-            val simpleDateFormatPattern = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
-            val simpleDateFormat = SimpleDateFormat(simpleDateFormatPattern)
-            bundle.putString("Title", newsDetail.title)
-            bundle.putString("Description", newsDetail.text)
-            bundle.putString("Image",newsDetail.picture)
-            bundle.putString("Time",prettyTime.format(simpleDateFormat.parse(newsDetail.createdAt)))
             newDetailsFragment.arguments=bundle
             return  newDetailsFragment
         }
     }
-
     override fun onCreate(savedInstanceState: Bundle?) {
         Fresco.initialize(activity)
         super.onCreate(savedInstanceState)
-        mTitle.text = savedInstanceState?.getString("Title")
-        mNewsDescription.text = savedInstanceState?.getString("Description")
-        mNewsTime.text = savedInstanceState?.getString("Time")
-        mNewsImage.setImageURI(Uri.parse(savedInstanceState?.getString("Image")))
+        title = savedInstanceState?.getString("Title")!!
+        newsDescription = savedInstanceState?.getString("Description")!!
+        newsTime = savedInstanceState?.getString("Time")!!
+        newsImage= savedInstanceState?.getString("Image")!!
     }
     override fun layout(): Int = R.layout.fragment_newsdetail
 
-    @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
+    @RequiresApi(Build.VERSION_CODES.LOLLIPOP) //PREGUNTAR
     override fun init() {
+        mTitle= activity!!.findViewById<TextView>(R.id.vNewsDetailTitle)
+        mNewsDescription=activity!!.findViewById<TextView>(R.id.vNewsDetailDescription)
+        mNewsTime=activity!!.findViewById<TextView>(R.id.vNewsDetailTime)
+        mNewsImage=activity!!.findViewById<ImageView>(R.id.vNewsDetailImage)
+        mNewsLike=activity!!.findViewById<ImageView>(R.id.vNewsDetailLike)
+        mTitle.text=title
+        mNewsDescription.text=newsDescription
+        mNewsTime.text=newsTime
+        mNewsImage.setImageURI(Uri.parse(newsImage))
         val toolbar:Toolbar= activity!!.findViewById(R.id.toolbar)
         activity!!.setActionBar(toolbar)
         val actionBar = activity!!.actionBar
         actionBar.setDisplayHomeAsUpEnabled(true)
+        mNewsLike.setOnClickListener {
+            mNewsLike.isSelected=!mNewsLike.isSelected
+        }
     }
 }

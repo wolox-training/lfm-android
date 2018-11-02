@@ -129,10 +129,13 @@ dependencies {
     implementation 'com.facebook.fresco:fresco:1.11.0'
     api 'org.ocpsoft.prettytime:prettytime:4.0.1.Final'
     implementation 'android.arch.paging:runtime:1.0.0'
+    api 'de.hdodenhof:circleimageview:1.2.1'
 
 
 
-    // Testing dependencies
+
+
+            // Testing dependencies
     testImplementation "junit:junit:4.12"
     testImplementation "org.mockito:mockito-inline:2.13.0"
     testImplementation "org.assertj:assertj-core:3.9.0"

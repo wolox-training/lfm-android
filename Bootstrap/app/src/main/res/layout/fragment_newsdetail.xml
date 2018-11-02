@@ -24,8 +24,8 @@
             <com.facebook.drawee.view.SimpleDraweeView
                 android:id="@+id/vNewsDetailImage"
                 android:layout_width="match_parent"
-                android:layout_height="250dp"
-                android:layout_marginTop="8dp"
+                android:layout_height="@dimen/newsDetail_Image_layoutHeight"
+                android:layout_marginTop="@dimen/spacing_medium_more"
                 android:layout_marginEnd="@dimen/spacing_large"
                 android:adjustViewBounds="true"
                 android:layout_marginBottom="@dimen/spacing_large"
@@ -43,8 +43,9 @@
                     android:layout_marginStart="@dimen/spacing_large"
                     android:gravity="start"
                     android:textAlignment="textStart"
-                    android:textSize="24sp"
-                    android:text="Titulo"/>
+                    android:textSize="@dimen/font_huge"
+                    android:text="Titulo"
+                    android:textColor="@color/blueTraining"/>
                 <TextView
                     android:id="@+id/vNewsDetailTime"
                     android:layout_width="match_parent"
@@ -55,13 +56,13 @@
             </LinearLayout>
         <android.support.v4.widget.NestedScrollView
             android:layout_width="match_parent"
-            android:layout_height="350dp"
+            android:layout_height="@dimen/newsDetail_detailDescription_layoutHeight"
             android:layout_marginStart="@dimen/spacing_large"
             android:layout_marginEnd="@dimen/spacing_large">
             <TextView
                 android:id="@+id/vNewsDetailDescription"
                 android:layout_width="match_parent"
-                android:layout_height="350dp"
+                android:layout_height="match_parent"
                 android:layout_marginTop="@dimen/static_spacing_medium"
                 android:text="Descripcion" />
 
