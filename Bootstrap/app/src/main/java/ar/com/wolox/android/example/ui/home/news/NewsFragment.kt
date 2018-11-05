@@ -10,11 +10,10 @@ import ar.com.wolox.android.R
 import ar.com.wolox.android.example.model.News
 import ar.com.wolox.android.example.ui.adapters.NewsAdapter
 import ar.com.wolox.wolmo.core.fragment.WolmoFragment
-import com.facebook.drawee.backends.pipeline.Fresco
 import javax.inject.Inject
 
 
-class NewsFragment @Inject constructor() :  WolmoFragment<NewsPresenter>(), INewsView, SwipeRefreshLayout.OnRefreshListener {
+class   NewsFragment @Inject constructor() :  WolmoFragment<NewsPresenter>(), INewsView, SwipeRefreshLayout.OnRefreshListener {
 
     private lateinit var mRecyclerView: RecyclerView
     private lateinit var mFragmentRecycleAdapter: NewsAdapter
@@ -30,39 +29,13 @@ class NewsFragment @Inject constructor() :  WolmoFragment<NewsPresenter>(), INew
     override fun init() {
         newsList= listOf()
         newsList=presenter.initialLoad()
-        Fresco.initialize(activity)
-        mSwipeRefreshLayout=activity!!.findViewById(R.id.vRefresh)
-        fab = activity!!.findViewById(R.id.fab)
-        fab.show()
-        mSwipeRefreshLayout.setOnRefreshListener(this)
-        this.mLayoutManager = LinearLayoutManager(activity)
-        mFragmentRecycleAdapter=NewsAdapter()
-        mLineDividerDecoration=DividerItemDecoration(context, DividerItemDecoration.VERTICAL)
-        mRecyclerView= activity!!.findViewById<RecyclerView>(R.id.vNewsRecycler).apply {
-            setHasFixedSize(false)
-            layoutManager=mLayoutManager
-            adapter=mFragmentRecycleAdapter
-        }
-        mRecyclerView.addItemDecoration(mLineDividerDecoration)
+        initFabButton()
+        initRecyclerView()
         mFragmentRecycleAdapter.addDataSet(newsList)
-        mRecyclerView.addOnScrollListener(object :RecyclerView.OnScrollListener(){
-            override fun onScrolled(recyclerView: RecyclerView?, dx: Int, dy: Int) {
-                super.onScrolled(recyclerView, dx, dy)
-                var visibleItems=mLayoutManager.childCount
-                var totalItems=mLayoutManager.itemCount
-                var firstItem=mLayoutManager.findFirstVisibleItemPosition()
-                if (firstItem < (firstItem+(visibleItems-N_ITEMS_TO_REFRESH)) ){
-
-                        newsList=presenter.loadNmoreNews(N_ITEMS_TO_REFRESH)
-                        mFragmentRecycleAdapter.addDataSet(newsList)
-                }
-                mFragmentRecycleAdapter.notifyDataSetChanged()
-            }
-        })
     }
 
     override fun onRefresh() {
-        val toast = Toast.makeText(context, "Refreshing News", Toast.LENGTH_LONG)
+        val toast = Toast.makeText(context, activity!!.resources.getString(R.string.home_news_onPullRefresh_Toast), Toast.LENGTH_LONG)
         toast.show()
         newsList= presenter.updateNews(5)
         mFragmentRecycleAdapter.addDataSet(newsList)
@@ -70,7 +43,7 @@ class NewsFragment @Inject constructor() :  WolmoFragment<NewsPresenter>(), INew
         mSwipeRefreshLayout.isRefreshing=false
     }
 
-     override fun setErrorCode(i: Int) {
+    override fun setErrorCode(i: Int) {
         val toastError = Toast.makeText(context, " ", Toast.LENGTH_LONG)
         when (i) {
             1 -> {
@@ -86,8 +59,38 @@ class NewsFragment @Inject constructor() :  WolmoFragment<NewsPresenter>(), INew
                 toastError.setText(activity!!.resources.getString(R.string.noConnection))
                 toastError.show()
             }
-
         }
+    }
+    private fun initFabButton(){
+        fab = activity!!.findViewById(R.id.fab)
+        fab.show()
+    }
+    private fun initRecyclerView(){
+        mSwipeRefreshLayout=activity!!.findViewById(R.id.vRefresh)
+        mSwipeRefreshLayout.setOnRefreshListener(this)
+        mLayoutManager = LinearLayoutManager(activity)
+        mFragmentRecycleAdapter=NewsAdapter()
+        mLineDividerDecoration=DividerItemDecoration(context, DividerItemDecoration.VERTICAL)
+        mRecyclerView= activity!!.findViewById<RecyclerView>(R.id.vNewsRecycler).apply {
+            setHasFixedSize(false)
+            layoutManager=mLayoutManager
+            adapter=mFragmentRecycleAdapter
+        }
+        mRecyclerView.addItemDecoration(mLineDividerDecoration)
+        mRecyclerView.addOnScrollListener(object :RecyclerView.OnScrollListener(){
+            override fun onScrolled(recyclerView: RecyclerView?, dx: Int, dy: Int) {
+                super.onScrolled(recyclerView, dx, dy)
+                var visibleItems=mLayoutManager.childCount
+                var totalItems=mLayoutManager.itemCount
+                var firstItem=mLayoutManager.findFirstVisibleItemPosition()
+                if (firstItem < (firstItem+(visibleItems-N_ITEMS_TO_REFRESH)) ){
+
+                    newsList=presenter.loadNmoreNews(N_ITEMS_TO_REFRESH)
+                    mFragmentRecycleAdapter.addDataSet(newsList)
+                }
+                mFragmentRecycleAdapter.notifyDataSetChanged()
+            }
+        })
     }
 
 

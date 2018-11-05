@@ -30,4 +30,5 @@
     <string name="noNewNews">News are up to date</string>
     <string name="home_newsTab">NEWS</string>
     <string name="home_profileTab">PROFILE</string>
+    <string name="home_news_onPullRefresh_Toast">Refreshing News</string>
 </resources>
