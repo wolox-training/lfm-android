@@ -18,7 +18,7 @@ class NewsDetailActivity : WolmoActivity() {
     override fun layout(): Int = R.layout.activity_base
 
     override fun init() {
-        replaceFragment(R.id.vActivityBaseContent, NewsDetailFragment())
+        replaceFragment(R.id.vActivityBaseContent, NewsDetailFragment.instance(this.intent.extras))
     }
 
 }

@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.v4.widget.SwipeRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:fresco="http://schemas.android.com/apk/res-auto"
     android:id="@+id/vNewsDetailSwipeRefreshLayout"
     android:orientation="vertical"
     android:layout_width="match_parent"
@@ -16,7 +18,8 @@
                 android:id="@+id/vNewsDetailToolbar"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
-                android:background="@color/colorPrimary" />
+                android:background="@color/colorPrimary"
+                android:elevation="@dimen/static_spacing_medium_extra" />
 
             <com.facebook.drawee.view.SimpleDraweeView
                 android:id="@+id/vNewsDetailImage"
@@ -59,7 +62,7 @@
             <TextView
                 android:id="@+id/vNewsDetailDescription"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_marginTop="@dimen/static_spacing_medium"
                 android:text="Descripcion" />
 

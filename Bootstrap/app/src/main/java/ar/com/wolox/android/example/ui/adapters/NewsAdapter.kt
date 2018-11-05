@@ -42,10 +42,12 @@ class NewsAdapter : RecyclerView.Adapter<NewsHolder>(){
         }
         holder.itemView.setOnClickListener {
             var bundle=Bundle()
+            bundle.putInt("id",dataSet[position].id)
             bundle.putString("Title", dataSet[position].title)
             bundle.putString("Description", dataSet[position].text)
             bundle.putString("Image",dataSet[position].picture)
             bundle.putString("Time",prettyTime.format(simpleDateFormat.parse(dataSet[position].createdAt)))
+            bundle.putBoolean("Like",holder.like.isSelected)
             NewsDetailActivity.startNewsDetailActivity(holder.itemView.context,bundle)
         }
     }

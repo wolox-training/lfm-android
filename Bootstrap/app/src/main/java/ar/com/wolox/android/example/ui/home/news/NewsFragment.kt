@@ -70,7 +70,6 @@ class NewsFragment @Inject constructor() :  WolmoFragment<NewsPresenter>(), INew
         mFragmentRecycleAdapter.notifyDataSetChanged()
         mSwipeRefreshLayout.isRefreshing=false
     }
-
      override fun setErrorCode(i: Int) {
         val toastError = Toast.makeText(context, " ", Toast.LENGTH_LONG)
         when (i) {

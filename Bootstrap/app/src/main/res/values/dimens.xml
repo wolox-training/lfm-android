@@ -102,6 +102,12 @@
     <dimen name="home_menu_marginTop">56dp</dimen>
 
     <dimen name="newsDetail_Image_layoutHeight">250dp</dimen>
-    <dimen name="newsDetail_detailDescription_layoutHeight">350dp</dimen>
+    <dimen name="newsDetail_detailDescription_layoutHeight">250dp</dimen>
+    <dimen name="profile_circleImage_marginTop">220dp</dimen>
+    <dimen name="profile_circleImage_margin">78dp</dimen>
+    <dimen name="profile_scrollView_layoutHeight">300dp</dimen>
+    <dimen name="profile_profileName_marginStart">94dp</dimen>
+    <dimen name="profile_name_marginTop">256dp</dimen>
+    <dimen name="profile_editLogo_marginStart">200dp</dimen>
 
 </resources>

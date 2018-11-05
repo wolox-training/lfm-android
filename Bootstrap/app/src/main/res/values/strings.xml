@@ -30,4 +30,8 @@
     <string name="noNewNews">News are up to date</string>
     <string name="home_newsTab">NEWS</string>
     <string name="home_profileTab">PROFILE</string>
+    <string name="profile_textDescription">Descripcion</string>
+    <string name="newsDetail_actionBar_Title">Home</string>
+    <string name="profile_nameText">Nombre</string>
+    <string name="profile_LocationText">Location</string>
 </resources>
