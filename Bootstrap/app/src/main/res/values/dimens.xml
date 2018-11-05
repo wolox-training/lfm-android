@@ -100,5 +100,8 @@
 
     <dimen name="home_menu_marginStart">72dp</dimen>
     <dimen name="home_menu_marginTop">56dp</dimen>
+    <dimen name="home_floatingActionButton_LayoutMargin">10dp</dimen>
+    <dimen name="viewHolder_drawee_layoutWidth">56dp</dimen>
+    <dimen name="viewHolder_gridLayout_height">88dp</dimen>
 
 </resources>

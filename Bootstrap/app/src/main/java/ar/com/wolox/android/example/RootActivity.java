@@ -4,6 +4,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 
+import com.facebook.drawee.backends.pipeline.Fresco;
+
 import ar.com.wolox.android.R;
 import ar.com.wolox.android.example.ui.home.HomeActivity;
 import ar.com.wolox.android.example.ui.logIn.LogInActivity;
@@ -21,6 +23,7 @@ public class RootActivity extends WolmoActivity {
     @Override
     protected void init() {
         Intent intent;
+        Fresco.initialize(this);
         SharedPreferences pref = getSharedPreferences(SHARED_PREFERENCES, Context.MODE_PRIVATE);
         String username = pref.getString(SHARED_PREFERENCES_KEY_EMAIL, "");
         if (username.isEmpty()){
