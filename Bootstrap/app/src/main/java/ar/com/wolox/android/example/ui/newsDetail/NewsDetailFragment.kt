@@ -25,13 +25,6 @@ class NewsDetailFragment: WolmoFragment<NewsDetailPresenter>(), INewsDetailView,
     private lateinit var mToolbar:Toolbar
     private lateinit var mActionBar: ActionBar
     private lateinit var mSwipeRefreshLayout:SwipeRefreshLayout
-    private var newsId = 0
-    private var title= String()
-    private var newsDescription= String()
-    private var newsTime= String()
-    private var newsImage= String()
-    private var like=false
-    private var bundle=Bundle()
 
     companion object {
         fun instance(bundle: Bundle): NewsDetailFragment {
@@ -43,17 +36,14 @@ class NewsDetailFragment: WolmoFragment<NewsDetailPresenter>(), INewsDetailView,
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        bundle= this.arguments!!
     }
 
     override fun layout(): Int = R.layout.fragment_newsdetail
-
 
     @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     override fun init() {
         bindViews()
         setToolbar()
-        getBundle()
         loadNewsDetails()
         mSwipeRefreshLayout.setOnRefreshListener(this)
         mNewsLike.setOnClickListener {
@@ -66,7 +56,7 @@ class NewsDetailFragment: WolmoFragment<NewsDetailPresenter>(), INewsDetailView,
         toast.show()
         mSwipeRefreshLayout.isRefreshing=false
     }
-    @RequiresApi(Build.VERSION_CODES.LOLLIPOP) //PREGUNTAR
+    @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     private fun bindViews() {
         mSwipeRefreshLayout=activity!!.findViewById(R.id.vNewsDetailSwipeRefreshLayout)
         mTitle = activity!!.findViewById(R.id.vNewsDetailTitle)
@@ -76,20 +66,13 @@ class NewsDetailFragment: WolmoFragment<NewsDetailPresenter>(), INewsDetailView,
         mNewsLike = activity!!.findViewById(R.id.vNewsDetailLike)
         mToolbar = activity!!.findViewById(R.id.vNewsDetailToolbar)
     }
-    private fun getBundle(){
-        newsId=bundle.getInt("id")
-        title = bundle.getString("Title")!!
-        newsDescription = bundle.getString("Description")!!
-        newsTime = bundle.getString("Time")!!
-        newsImage = bundle.getString("Image")!!
-        like=bundle.getBoolean("Like")
-    }
+
     private fun loadNewsDetails(){
-        mTitle.text = title
-        mNewsDescription.text = newsDescription
-        mNewsTime.text = newsTime
-        mNewsImage.setImageURI(Uri.parse(newsImage))
-        mNewsLike.isSelected=like
+        mTitle.text = arguments!!.getString("Title")!!
+        mNewsDescription.text = arguments!!.getString("Description")!!
+        mNewsTime.text = arguments!!.getString("Time")!!
+        mNewsImage.setImageURI(Uri.parse(arguments!!.getString("Image")))
+        mNewsLike.isSelected= arguments!!.getBoolean("Like")
     }
     @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     private fun setToolbar(){

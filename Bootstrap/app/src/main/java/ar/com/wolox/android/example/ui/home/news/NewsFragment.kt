@@ -86,7 +86,6 @@ class NewsFragment @Inject constructor() :  WolmoFragment<NewsPresenter>(), INew
                 toastError.setText(activity!!.resources.getString(R.string.noConnection))
                 toastError.show()
             }
-
         }
     }
 
