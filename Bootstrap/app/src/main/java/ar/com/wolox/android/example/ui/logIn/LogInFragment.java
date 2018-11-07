@@ -103,6 +103,5 @@ public class LogInFragment extends WolmoFragment<LogInPresenter> implements ILog
                 toast.show();
                 break;
         }
-
     }
 }

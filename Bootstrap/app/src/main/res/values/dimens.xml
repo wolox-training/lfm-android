@@ -109,5 +109,6 @@
     <dimen name="profile_profileName_marginStart">94dp</dimen>
     <dimen name="profile_name_marginTop">256dp</dimen>
     <dimen name="profile_editLogo_marginStart">200dp</dimen>
+    <dimen name="home_news_fab_marginStart">356dp</dimen>
 
 </resources>
