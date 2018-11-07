@@ -12,8 +12,12 @@ import android.widget.TextView
 import android.widget.Toast
 import android.widget.Toolbar
 import ar.com.wolox.android.R
+import ar.com.wolox.android.example.model.News
 import ar.com.wolox.android.example.ui.home.HomeActivity
 import ar.com.wolox.wolmo.core.fragment.WolmoFragment
+import org.ocpsoft.prettytime.PrettyTime
+import java.io.Serializable
+import java.text.SimpleDateFormat
 
 
 class NewsDetailFragment: WolmoFragment<NewsDetailPresenter>(), INewsDetailView, SwipeRefreshLayout.OnRefreshListener {
@@ -27,9 +31,12 @@ class NewsDetailFragment: WolmoFragment<NewsDetailPresenter>(), INewsDetailView,
     private lateinit var mSwipeRefreshLayout:SwipeRefreshLayout
 
     companion object {
-        fun instance(bundle: Bundle): NewsDetailFragment {
+        fun instance(news:Serializable
+        ): NewsDetailFragment {
             val newDetailsFragment = NewsDetailFragment()
-            newDetailsFragment.arguments = bundle
+            var bundle=Bundle()
+            bundle.putSerializable("news",news)
+            newDetailsFragment.arguments=bundle
             return newDetailsFragment
         }
     }
@@ -68,11 +75,15 @@ class NewsDetailFragment: WolmoFragment<NewsDetailPresenter>(), INewsDetailView,
     }
 
     private fun loadNewsDetails(){
-        mTitle.text = arguments!!.getString("Title")!!
-        mNewsDescription.text = arguments!!.getString("Description")!!
-        mNewsTime.text = arguments!!.getString("Time")!!
-        mNewsImage.setImageURI(Uri.parse(arguments!!.getString("Image")))
-        mNewsLike.isSelected= arguments!!.getBoolean("Like")
+        var news= arguments!!.getSerializable("news") as News
+        val prettyTime = PrettyTime()
+        val simpleDateFormatPattern = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
+        val simpleDateFormat = SimpleDateFormat(simpleDateFormatPattern)
+        mTitle.text = news.title
+        mNewsDescription.text =news.text
+        mNewsTime.text =prettyTime.format(simpleDateFormat.parse( news.createdAt))
+        mNewsImage.setImageURI(Uri.parse(news.picture))
+        mNewsLike.isSelected= news.like
     }
     @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     private fun setToolbar(){
