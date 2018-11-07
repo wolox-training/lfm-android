@@ -34,4 +34,5 @@
     <string name="newsDetail_actionBar_Title">Home</string>
     <string name="profile_nameText">Nombre</string>
     <string name="profile_LocationText">Location</string>
+    <string name="home_news_onPullRefresh_Toast">Refreshing News</string>
 </resources>
