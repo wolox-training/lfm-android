@@ -24,5 +24,5 @@
             android:layout_marginEnd="@dimen/spacing_large_extra"
             android:layout_marginBottom="@dimen/spacing_large_extra"
             android:src="@android:drawable/ic_input_add" />
-    </RelativeLayout>
+    </RelativeLayout>   
 </android.support.v4.widget.SwipeRefreshLayout>
