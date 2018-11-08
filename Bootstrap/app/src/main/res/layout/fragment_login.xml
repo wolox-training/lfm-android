@@ -75,6 +75,11 @@
             android:background="@android:color/holo_blue_light"
             android:text="@string/sign_up"
             android:textColor="@android:color/white" />
+        <com.google.android.gms.common.SignInButton
+            android:id="@+id/vGoogleSignIn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="visible" />
     </LinearLayout>
     <TextView
         android:id="@+id/fragment_logIn_terms_text"

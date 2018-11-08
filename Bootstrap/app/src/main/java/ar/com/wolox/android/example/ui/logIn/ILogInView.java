@@ -4,4 +4,6 @@ interface ILogInView {
     void onLogInSuccessful();
 
     void setErrorCode(int code);
+
+    void setGoogleAPIErrorCode(int code);
 }

@@ -130,7 +130,8 @@ dependencies {
     api 'org.ocpsoft.prettytime:prettytime:4.0.1.Final'
     implementation 'android.arch.paging:runtime:1.0.0'
     api 'de.hdodenhof:circleimageview:1.2.1'
-
+    api 'com.google.android.gms:play-services-auth:15.0.1'
+    implementation 'com.google.firebase:firebase-core:16.0.1'
 
 
 
@@ -141,3 +142,4 @@ dependencies {
     testImplementation "org.assertj:assertj-core:3.9.0"
     testImplementation "com.squareup.leakcanary:leakcanary-android-no-op:$leak_canary_version"
 }
+apply plugin: 'com.google.gms.google-services'
