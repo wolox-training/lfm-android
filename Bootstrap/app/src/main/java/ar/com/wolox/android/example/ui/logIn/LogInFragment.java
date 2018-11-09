@@ -12,6 +12,7 @@ import android.widget.Toast;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
+import com.google.android.gms.common.SignInButton;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -36,6 +37,7 @@ public class LogInFragment extends WolmoFragment<LogInPresenter> implements ILog
     @BindView (R.id.fragment_logIn_button) Button logInButton;
     @BindView (R.id.fragment_logIn_signUp_button) Button signUpButton;
     @BindView (R.id.fragment_logIn_terms_text) TextView mTermsAndConditions;
+    @BindView (R.id.vGoogleSignIn) SignInButton mGoogleSignInButton;
     private GoogleSignInOptions gso;
     private GoogleSignInClient mGoogleSignInClient ;
     private int RC_SIGN_IN=0;
@@ -51,6 +53,7 @@ public class LogInFragment extends WolmoFragment<LogInPresenter> implements ILog
     @Override
     public void init() {
         mTermsAndConditions.setMovementMethod(LinkMovementMethod.getInstance());
+        mGoogleSignInButton.setSize(SignInButton.SIZE_WIDE);
         gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestEmail()
                 .build();

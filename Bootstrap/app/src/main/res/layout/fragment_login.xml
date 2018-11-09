@@ -79,6 +79,8 @@
             android:id="@+id/vGoogleSignIn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/logInBtn_marginStart"
+            android:layout_marginEnd="@dimen/logInBtn_marginEnd"
             android:visibility="visible" />
     </LinearLayout>
     <TextView
