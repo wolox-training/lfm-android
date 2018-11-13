@@ -1,54 +1,69 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:orientation="vertical">
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <android.support.v7.widget.Toolbar
-        android:id="@+id/fragment_home_topToolbar"
-        android:layout_width="wrap_content"
-        android:layout_height="@dimen/home_toolBar_layout_height"
-        android:background="@android:color/background_light"
-        android:minHeight="?attr/actionBarSize"
-        android:theme="?attr/actionBarTheme" />
-
-    <ImageView
-        android:id="@+id/fragment_home_wlogo"
-        android:layout_width="@dimen/wlogo_layout_width"
-        android:layout_height="@dimen/wLogo_layout_height"
-        android:layout_marginStart="@dimen/wlogo_marginStart"
-        app:srcCompat="@drawable/wlogo" />
-
-    <TextView
-        android:id="@+id/fragment_home_topToolbar_text"
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+    <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/home_woloxText_marginStart"
-        android:layout_marginTop="@dimen/home_woloxText_marginTop"
-        android:text="@string/wolox"
-        android:textAlignment="viewStart"
-        android:textAllCaps="false"
-        android:textColor="@android:color/black"
-        android:textSize="@dimen/home_woloxText_textSize"
-        android:textStyle="bold"
-        android:visibility="visible" />
+        android:elevation="@dimen/static_spacing_medium_extra"
+        android:background="@color/white">
 
-    <android.support.v7.widget.Toolbar
-        android:id="@+id/fragment_home_lower_toolbar"
-        android:layout_width="@dimen/home_toolBar_layout_width"
-        android:layout_height="@dimen/home_toolBar_layout_height"
-        android:background="@android:color/background_light"
-        android:minHeight="?attr/actionBarSize"
-        android:theme="?attr/actionBarTheme"
-        android:translationY="@dimen/home_toolBar_translationY" />
+        <android.support.v7.widget.Toolbar
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/home_toolBar_layout_height"
+            android:background="@android:color/background_light"
+            android:minHeight="?attr/actionBarSize"
+            android:theme="?attr/actionBarTheme">
 
-    <ImageView
-        android:id="@+id/fragment_home_menu"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/home_menu_marginStart"
-        android:layout_marginTop="@dimen/home_menu_marginTop"
-        app:srcCompat="@drawable/ic_news_list_off" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="@dimen/static_spacing_medium_extra"
+                android:orientation="horizontal">
 
-</android.support.design.widget.CoordinatorLayout>
+                <ImageView
+                    android:layout_width="@dimen/wlogo_layout_width"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/logo_marginStart"
+                    android:src="@drawable/wlogo" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/home_woloxText_marginTop"
+                    android:layout_marginBottom="@dimen/home_woloxText_marginTop"
+                    android:text="@string/wolox"
+                    android:textAlignment="viewStart"
+                    android:textAllCaps="false"
+                    android:textColor="@android:color/black"
+                    android:textSize="@dimen/font_large"
+                    android:textStyle="bold"
+                    android:visibility="visible" />
+            </LinearLayout>
+
+        </android.support.v7.widget.Toolbar>
+
+        <android.support.design.widget.TabLayout
+            android:id="@+id/vHomeTabs"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            app:tabIndicatorColor="@color/greenTraining"
+            app:tabSelectedTextColor="@color/greenTraining"
+            app:tabTextAppearance="@style/home_TabText">
+        </android.support.design.widget.TabLayout>
+
+    </android.support.design.widget.AppBarLayout>
+        <android.support.v4.view.ViewPager
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/vViewPager">
+        </android.support.v4.view.ViewPager>
+    </LinearLayout>
+</FrameLayout>

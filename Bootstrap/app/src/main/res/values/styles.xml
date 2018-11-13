@@ -6,6 +6,10 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:textSize">5sp</item>
+    </style>
+    <style name="home_TabText" parent="TextAppearance.Design.Tab">
+        <item name="android:textSize">10sp</item>
     </style>
 
 </resources>
