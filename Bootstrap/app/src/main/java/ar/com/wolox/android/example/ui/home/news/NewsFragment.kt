@@ -10,14 +10,17 @@ import ar.com.wolox.android.R
 import ar.com.wolox.android.example.model.News
 import ar.com.wolox.android.example.ui.adapters.NewsAdapter
 import ar.com.wolox.wolmo.core.fragment.WolmoFragment
+import kotlinx.android.synthetic.main.fragment_news.*
 import javax.inject.Inject
 
 
 class   NewsFragment @Inject constructor() :  WolmoFragment<NewsPresenter>(), INewsView, SwipeRefreshLayout.OnRefreshListener {
 
     private lateinit var mRecyclerView: RecyclerView
+    private lateinit var mRecyclerViewHorizontal:RecyclerView;
     private lateinit var mFragmentRecycleAdapter: NewsAdapter
     private lateinit var  mLayoutManager: LinearLayoutManager
+    private lateinit var  mLayoutManager2: LinearLayoutManager
     private lateinit var fab:FloatingActionButton
     private lateinit var mSwipeRefreshLayout: SwipeRefreshLayout
     private lateinit var  mLineDividerDecoration:DividerItemDecoration
@@ -68,11 +71,17 @@ class   NewsFragment @Inject constructor() :  WolmoFragment<NewsPresenter>(), IN
         mSwipeRefreshLayout=activity!!.findViewById(R.id.vRefresh)
         mSwipeRefreshLayout.setOnRefreshListener(this)
         mLayoutManager = LinearLayoutManager(activity)
+        mLayoutManager2= LinearLayoutManager(activity,LinearLayoutManager.HORIZONTAL,false)
         mFragmentRecycleAdapter=NewsAdapter()
         mLineDividerDecoration=DividerItemDecoration(context, DividerItemDecoration.VERTICAL)
         mRecyclerView= activity!!.findViewById<RecyclerView>(R.id.vNewsRecycler).apply {
             setHasFixedSize(false)
             layoutManager=mLayoutManager
+            adapter=mFragmentRecycleAdapter
+        }
+        mRecyclerViewHorizontal= activity!!.findViewById<RecyclerView>(R.id.horizontalRecycler).apply {
+            setHasFixedSize(false)
+            layoutManager=mLayoutManager2
             adapter=mFragmentRecycleAdapter
         }
         mRecyclerView.addItemDecoration(mLineDividerDecoration)
@@ -90,6 +99,24 @@ class   NewsFragment @Inject constructor() :  WolmoFragment<NewsPresenter>(), IN
                 mFragmentRecycleAdapter.notifyDataSetChanged()
             }
         })
+        mRecyclerViewHorizontal.addOnScrollListener(object :RecyclerView.OnScrollListener(){
+            override fun onScrolled(recyclerView: RecyclerView?, dx: Int, dy: Int) {
+                super.onScrolled(recyclerView, dx, dy)
+                var visibleItems=mLayoutManager2.childCount
+                var totalItems=mLayoutManager2.itemCount
+                var firstItem=mLayoutManager2.findFirstVisibleItemPosition()
+                if (firstItem < (firstItem+(visibleItems-N_ITEMS_TO_REFRESH)) ){
+
+                    newsList=presenter.loadNmoreNews(N_ITEMS_TO_REFRESH)
+                    mFragmentRecycleAdapter.addDataSet(newsList)
+                }
+                mFragmentRecycleAdapter.notifyDataSetChanged()
+            }
+        })
+        mRecyclerView.isNestedScrollingEnabled=false
+        mRecyclerViewHorizontal.isNestedScrollingEnabled=false
+        mRecyclerViewHorizontal.setHasFixedSize(true)
+        mRecyclerView.setHasFixedSize(false)
     }
 
 

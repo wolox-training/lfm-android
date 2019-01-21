@@ -7,8 +7,10 @@ import android.content.SharedPreferences;
 import com.facebook.drawee.backends.pipeline.Fresco;
 
 import ar.com.wolox.android.R;
+import ar.com.wolox.android.example.ui.Recyclers.RecyclerActivity;
 import ar.com.wolox.android.example.ui.home.HomeActivity;
 import ar.com.wolox.android.example.ui.logIn.LogInActivity;
+import ar.com.wolox.android.example.ui.newsDetail.NewsDetailActivity;
 import ar.com.wolox.wolmo.core.activity.WolmoActivity;
 
 public class RootActivity extends WolmoActivity {
@@ -27,7 +29,7 @@ public class RootActivity extends WolmoActivity {
         SharedPreferences pref = getSharedPreferences(SHARED_PREFERENCES, Context.MODE_PRIVATE);
         String username = pref.getString(SHARED_PREFERENCES_KEY_EMAIL, "");
         if (username.isEmpty()){
-            intent=new Intent(this,LogInActivity.class);
+            intent=new Intent(this, HomeActivity.class);
             startActivity(intent);
             this.finish();
         }
