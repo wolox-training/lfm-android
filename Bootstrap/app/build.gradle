@@ -132,6 +132,7 @@ dependencies {
     api 'de.hdodenhof:circleimageview:1.2.1'
     api 'com.google.android.gms:play-services-auth:15.0.1'
     implementation 'com.google.firebase:firebase-core:16.0.1'
+    implementation 'com.android.support.constraint:constraint-layout:2.0.0-alpha2'
 
 
 

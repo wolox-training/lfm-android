@@ -18,7 +18,7 @@ class ExampleFragment : WolmoFragment<ExamplePresenter>(), IExampleView {
 
     override fun setListeners() {
         vUsernameInput.onTextChanged { vLoginButton.isEnabled = it.isNotBlank() }
-        vLoginButton.onClickListener {
+        vLoginButton.onClickaaListener {
             presenter.storeUsername(vUsernameInput.text.toString())
         }
     }
