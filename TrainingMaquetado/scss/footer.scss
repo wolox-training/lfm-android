@@ -1,0 +1,28 @@
+.footer {
+  display: flex;
+  background: #00ADEE;
+  align-content: center;
+  height: auto;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+
+  .footer-slogan{
+    color: white;
+    font-size: 16px;
+    margin: 10px 0px 10px 0px;
+  }
+  .footer-image {
+    margin: 10px 0px 10px 0px;
+  }
+
+  .footer-copyright{
+    margin: 10px 10px 10px 0px;
+    color: white;
+    align-content: flex-end;
+    align-self: flex-end;
+    font-size: 12px;
+  }
+
+}
