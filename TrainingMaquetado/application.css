@@ -1,0 +1,219 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto&display=swap");
+* {
+  box-sizing: border-box;
+  font-family: sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+span,
+label,
+input,
+a,
+button,
+select,
+textarea {
+  color: #000;
+  display: inline-block;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: normal;
+  margin: 0;
+}
+h1:focus,
+h2:focus,
+h3:focus,
+h4:focus,
+h5:focus,
+h6:focus,
+p:focus,
+span:focus,
+label:focus,
+input:focus,
+a:focus,
+button:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+}
+
+select {
+  -moz-appearance: none;
+  -webkit-appearance: none;
+}
+
+table {
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+input,
+select,
+textarea,
+button {
+  border: 0;
+  border-radius: 0;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+button {
+  background: transparent;
+  cursor: pointer;
+}
+
+button::-moz-focus-inner {
+  border: 0;
+}
+
+a {
+  cursor: pointer;
+  text-decoration: none;
+}
+a:focus, a:active, a:hover {
+  color: #000;
+  text-decoration: none;
+}
+
+ul,
+li {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+::placeholder {
+  color: #999;
+  opacity: 1;
+}
+
+* {
+  font-family: "Roboto", sans-serif;
+}
+
+.header {
+  align-items: center;
+  display: flex;
+  flex-wrap: nowrap;
+  margin: 100px 0px 0px 20px;
+}
+.header .header-title {
+  color: black;
+  font-size: 24px;
+  margin-left: -18px;
+}
+.header .header-logo {
+  height: 90px;
+  margin-bottom: 10px;
+  width: 70px;
+}
+
+.tech-list {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 20px 0px 40px 50px;
+}
+
+.tech {
+  position: relative;
+  align-items: center;
+  background: #BED23C;
+  border-radius: 4px;
+  display: inline-flex;
+  flex-direction: column;
+  font-size: 16px;
+  margin: 10px 50px 50px 20px;
+  width: 200px;
+  padding: 30px;
+}
+.tech::before {
+  content: "";
+  width: 100%;
+  height: 100%;
+  border: 1px solid #BED23C;
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  border-radius: 5px;
+  z-index: -1;
+}
+.tech .tech-logo {
+  max-width: 100px;
+  width: 100%;
+  max-height: 100px;
+  height: 100%;
+}
+.tech .tech-date {
+  font-weight: bold;
+}
+.tech .tech-description {
+  flex-direction: column;
+  text-align: center;
+}
+
+.footer {
+  align-content: center;
+  align-items: center;
+  background: #00ADEE;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  height: auto;
+  justify-content: center;
+}
+.footer .footer-slogan {
+  color: white;
+  font-size: 16px;
+  margin: 10px 0;
+}
+.footer .footer-image {
+  margin: 10px 0px 10px 0px;
+}
+.footer .footer-copyright {
+  align-content: flex-end;
+  align-self: flex-end;
+  color: white;
+  font-size: 12px;
+  margin: 10px 10px 10px 0px;
+}
+
+.navbar {
+  align-items: center;
+  background-color: white;
+  box-shadow: 0px 10px 5px #aaaaaa;
+  display: flex;
+  flex-wrap: nowrap;
+  height: 100%;
+  justify-content: space-between;
+  max-height: 70px;
+  margin: 0px 0px 20px 0px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 999;
+}
+.navbar .navbar-logo {
+  max-height: 30px;
+  height: 100%;
+  margin: 0px 10px;
+}
+.navbar .navbar-title {
+  align-items: flex-end;
+  justify-content: flex-end;
+  margin: 0px 10px;
+  font-size: 24px;
+  color: black;
+}
+
+/*# sourceMappingURL=application.css.map */
